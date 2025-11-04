@@ -7,6 +7,7 @@ import travelBackground from './assets/travelBackground.jpg';
 
 
 import './App.css'
+import TravelTips from './components/Pages/TravelTips'
 
 function App() {
   
@@ -19,8 +20,9 @@ function App() {
       
       <Routes>
         <Route path="/" element={<Homepage />} />
-        {/* <Route path="/planner" element={<Planner />} />
         <Route path="/traveltips" element={<TravelTips />} />
+        {/* <Route path="/planner" element={<Planner />} />
+        
         <Route path="/resources" element={<Resources />} /> */}
       </Routes>
       </div>
