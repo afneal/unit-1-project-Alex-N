@@ -1,0 +1,41 @@
+header {
+    background-color: rgb(207, 141, 48);
+    color: black;
+}
+
+footer {
+    background-color: rgb(23, 59, 69);
+}
+
+.nav-menu {
+    color:black;
+    text-align: right;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    font-size: 17px;
+    list-style-type: none;
+    
+}
+
+.nav-menu li{
+    float: right;
+}
+
+.nav-menu li a{
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+.nav-menu a:hover {
+    text-decoration: underline;
+    color: rgb(180, 63, 63);
+}
+
