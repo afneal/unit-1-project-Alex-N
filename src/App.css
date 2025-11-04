@@ -105,3 +105,45 @@ h1 {
     font-size: 40px;
 }
 
+.destination-div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 0 0 auto;
+}
+
+.destination-input {
+   
+    font-size: 2em;
+    background: transparent;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    
+    
+    font-family: "Quintessential", serif;
+    flex: 0 0 auto;
+    margin: 0;
+    padding: 0;
+
+}
+
+.destination-text {
+    font-size: 2em;
+    font-family: "Quintessential", serif;
+    font-weight: bold;
+    display: inline-block;
+    gap: 10px;
+    margin: 0;
+    
+    width: fit-content;
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    gap:10px;
+}
+
+
+
