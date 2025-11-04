@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router'
 import Homepage from './components/pages/Homepage'
 import Header from './components/layout/Header'
 import travelBackground from './assets/travelBackground.jpg';
+import Footer from './components/layout/Footer'
 
 
 import './App.css'
@@ -25,6 +26,8 @@ function App() {
         
         <Route path="/resources" element={<Resources />} /> */}
       </Routes>
+
+      <Footer />
       </div>
 
     </>
