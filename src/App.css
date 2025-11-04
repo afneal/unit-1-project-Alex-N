@@ -1,0 +1,101 @@
+header {
+    background-color: rgb(207, 141, 48);
+    color: black;
+    font-size: 2em;
+    padding: 20px;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+footer {
+    background-color: rgb(23, 59, 69);
+}
+
+.nav-menu {
+    padding: 0;
+    margin: 0;
+    font-size: 17px;
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+   }
+
+.nav-menu li {
+    padding: 5px 10px;
+    
+}
+
+.nav-menu li a {
+    padding: 14px 16px;
+    text-decoration: none;
+    color: black;
+}
+
+
+
+.nav-menu a:hover {
+    text-decoration: underline;
+    color: rgb(180, 63, 63);
+}
+
+.homepage {
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: rgb(207, 141, 48);
+    padding: 10px;
+    border: 2px solid rgb(207, 141, 48);
+    max-width: 80%;
+    margin: auto;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+.homepage-main {
+    color: rgb(207, 141, 48);
+    text-decoration: none;
+}
+
+.homepage a:hover {
+    text-decoration: underline;
+    color: rgb(180, 63, 63);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.traveltips {
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: rgb(207, 141, 48);
+    padding: 10px;
+    border: 2px solid rgb(207, 141, 48);
+    max-width: 80%;
+    margin: auto;
+    margin-top: 20px;
+    border-radius: 10px;
+    
+}
+
+ul {
+    display: inline-block;
+    list-style-position: inside;
+    padding-left: 0;
+    text-align: center;
+}
+
+li {
+    text-align: left;
+   
+}
+
+p {
+    font-size: 20px;
+}
+
+h1 {
+    font-size: 40px;
+}
