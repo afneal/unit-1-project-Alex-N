@@ -7,6 +7,7 @@ function NavMenu() {
             <li><Link to="/planner">Planner</Link></li>
             <li><Link to="/traveltips">Travel Tips</Link></li>
             <li><Link to="/resources">Resources</Link></li>
+            <li><Link to="/plannerform">Planner Form</Link></li>
         </div>
     )
 }

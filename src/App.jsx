@@ -11,6 +11,7 @@ import Planner from './components/Pages/Planner'
 
 import './App.css'
 import TravelTips from './components/Pages/TravelTips'
+import PlannerForm from './components/Pages/PlannerForm'
 
 function App() {
   
@@ -25,6 +26,7 @@ function App() {
         <Route path="/" element={<Homepage />} />
         <Route path="/traveltips" element={<TravelTips />} />
         <Route path="/planner" element={<Planner />} />
+        <Route path="/plannerform" element={<PlannerForm />} />
         
         {/* <Route path="/resources" element={<Resources />} /> */}
       </Routes>

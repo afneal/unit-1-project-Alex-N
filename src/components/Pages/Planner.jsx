@@ -6,11 +6,10 @@ import { useState } from 'react'
 function Planner() {
 
     const [isEditing, setIsEditing] = useState(false);
-    const [destinationText, setDestinationText] = useState('Destination');
+    const [destinationText, setDestinationText] = useState('Click to Edit Trip Title');
+    const [date, setDate] = useState('Click to Set Date');
 
-    const handleOnChange = (event) => {
-        setDestinationText(event.target.value);
-    }
+
 
     const handleSave = () => {
         setIsEditing(false);
@@ -22,31 +21,53 @@ function Planner() {
 
 
     return (
-        <div className='destination-div'>
-            <div className='destination-save-container'>
-            {isEditing ? (
-                <div className='buttons'>
-                    <input
-                        type="text"
-                        value={destinationText}
-                        onChange={handleOnChange}
-                        className='destination-input'
-                        autoFocus
-                    />
-                    
-                    <button onClick={handleSave} className='save-button'>Save</button>
+        <>
+            <div className='destination-div'>
+                <div >
+                    {isEditing ? (
+                        <div>
+                            <input
+                                type="text"
+                                value={destinationText}
+                                onChange={(e) => setDestinationText(e.target.value)}
+                                className='destination-input'
+                                autoFocus
+                            />
+                            <button onClick={handleSave}>
+                                Save
+                            </button>
+                        </div>
+                    ) : (
+                        <span className='destination-text' onClick={handleEdit} >{destinationText}</span>
+                    )}
                 </div>
-            ) : (
-                <div className='buttons'>
-                    <span className='destination-text'>{destinationText}</span>
-                    <button onClick={handleEdit}>Edit</button>
+            </div>
+
+            <div className='date'>
+                <div>
+                    {isEditing ? (
+                        <div>
+                            <input
+                                type="text"
+                                value={date}
+                                onChange={(e) => setDate(e.target.value)}
+                                className='date-input'
+                                autoFocus
+                            />
+                            <button onClick={handleSave}>
+                                Save
+                            </button>
+                        </div>
+                    ) : (
+                        <span className='date-text' onClick={handleEdit}> {date} </span>
+                    )}
                 </div>
-            )
-            }
-        </div>
-        </div>
+            </div>
+        </>
     )
 }
 
 
 export default Planner;
+
+
