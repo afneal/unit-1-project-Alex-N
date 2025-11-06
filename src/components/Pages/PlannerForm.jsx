@@ -27,7 +27,7 @@ function PlannerForm() {
 
 
     const handleAddDay = () => {
-        setDays([...days, {  //updates state with new empty day to the array
+        setDays([...days, {  //updates state with new empty day to the array. Spread operator makes days into a new array, adds empty object to the array
             city: "",
             date: "",
             activities: [
