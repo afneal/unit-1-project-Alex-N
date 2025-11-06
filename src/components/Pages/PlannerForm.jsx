@@ -20,7 +20,7 @@ function PlannerForm() {
     }])
 
     const addActivity = (e, i) => {
-        const { name, value } = e.target; length
+        const { name, value } = e.target; 
         let newActivity = [...activities];
         newActivity[i][name] = value;
         setActivities(newActivity);
@@ -34,24 +34,50 @@ function PlannerForm() {
         }])
     }
 
+    const [days, setDays] = useState([{
+        city: "",
+        date: "",
+        activities: [
+            { activity: "", time: "", notes: "" }
+        ]
+
+    }])
+
+    const handleAddDay = () => {
+        setDays([...days, {
+            city: "",
+            date: "",
+            activities: [
+                { activity: "", time: "", notes: "" }
+            ]
+        }])
+    }
+
     const handleDelete = (i) => {
         let deleteActivty = [...activities];
         deleteActivty.splice(i, 1);
         setActivities(deleteActivty);
     }
 
+
     return (
         <>
             <h1 className='trip-details'>Trip Details</h1>
             <form className='form'>
-                <fieldset>
-                    <legend>Trip Details</legend>
+                {days.map((day, dayIndex) => (
+                <fieldset key={dayIndex}>
+                    <legend>Day and Location</legend>
+                    
                     <label>What is the city?</label>
                     <input
                         id="city"
                         name="city"
                         placeholder='City Name'
-                        onChange={handleInput}
+                        onChange={e => {
+                            const newDays = [...days];
+                            newDays[dayIndex].city = e.target.value;
+                            setDays(newDays);
+                        }}
 
                     />
                     <label>What is the date of activities?</label>
@@ -60,71 +86,86 @@ function PlannerForm() {
                         name="date"
                         type='date'
                         placeholder='Date of Activities'
+                        onChange={e => {
+                            const newDays = [...days];
+                            newDays[dayIndex].date = e.target.value;
+                            setDays(newDays);
+                        }}
                     />
-                </fieldset>
-                <fieldset>
+                    
+                
 
                     <legend>Activities</legend>
 
-                    {activities.map((act, index) => (
+                    {day.activities.map((act, index) => (
                         <div key={index} className='activity-component'>
-                    <div className='activity-input'>
-                        <label>Input Activity</label>
-                        
-                        <input
-                            id="activity"
-                            name="activity"
-                            placeholder='Activity'
-                            onChange={e => {
-                            const newActivities = [...activities];
-                            newActivities[index].activity = e.target.value;
-                            setActivities(newActivities)
-                            }}
-                        />
-                        
-                    </div>
-                    <div className='time-input'>
-                        <label>Time of Activity</label>
-                        <input
-                            id="time"
-                            name="time"
-                            placeholder='Time of Activity'
-                            onChange={e => {
-                                const newActivities = [...activities];
-                                newActivities[index].time = e.target.value;
-                                setActivities(newActivities);
-                            }}
-                        />
-                    </div>
-                    <div className='activity-notes'>
-                        <label>Notes</label>
-                        <textarea
-                            id="notes"
-                            name="notes"
-                            rows={5}
-                            placeholder='Add Notes'
-                            onChange={e => {
-                                const newActivities = [...activities];
-                                newActivities[index].notes = e.target.value;
-                                setActivities(newActivities);
-                            }}
-                            />
-                    </div>
-                    <button
-                        className='delete-button'
-                        type="button"
-                        onClick={() => handleDelete(index)}>Delete</button>
-                        
+                            <div className='activity-input'>
+                                <label>Input Activity</label>
+
+                                <input
+                                    id="activity"
+                                    name="activity"
+                                    placeholder='Activity'
+                                    onChange={e => {
+                                        const newActivities = [...activities];
+                                        newActivities[index].activity = e.target.value;
+                                        setActivities(newActivities)
+                                    }}
+                                />
+
+                            </div>
+                            <div className='time-input'>
+                                <label>Time of Activity</label>
+                                <input
+                                    id="time"
+                                    name="time"
+                                    placeholder='Time of Activity'
+                                    onChange={e => {
+                                        const newActivities = [...activities];
+                                        newActivities[index].time = e.target.value;
+                                        setActivities(newActivities);
+                                    }}
+                                />
+                            </div>
+                            <div className='activity-notes'>
+                                <label>Notes</label>
+                                <textarea
+                                    id="notes"
+                                    name="notes"
+                                    rows={5}
+                                    placeholder='Add Notes'
+                                    onChange={e => {
+                                        const newActivities = [...activities];
+                                        newActivities[index].notes = e.target.value;
+                                        setActivities(newActivities);
+                                    }}
+                                />
+                            </div>
+                            
+                            <button
+                                className='delete-button'
+                                type="button"
+                                onClick={() => handleDelete(index)}>Delete</button>
+
                         </div>
                     ))}
                     <div>
-                       
+
                         <button className='activity-button'
                             type="button"
-                            onClick={handleAddActivity}
-                            >Add Activity</button>
+                            onClick={handleAddActivity}>Add Activity</button>
+
+                        
+
                     </div>
+                   
                 </fieldset>
+                ))}
+                <button className='add-day-button'
+                    type="button"
+                    onClick={handleAddDay}>Add Day</button>
+                
+
             </form>
 
         </>
