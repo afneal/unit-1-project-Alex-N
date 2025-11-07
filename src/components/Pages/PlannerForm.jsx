@@ -11,6 +11,8 @@ function PlannerForm() {
 
     }])
 
+    
+
 
 
     const handleAddActivity = (dayIndex) => {
@@ -37,7 +39,7 @@ function PlannerForm() {
     }
 
 
-    const handleActivityDelete = (dayIndex, activityIndex) => {
+    const handleActivityDelete = (dayIndex, activityIndex) => { //pass in indexes as parameters to find the correct activity per day to delete
         const newDays = [...days];  //makes copy of days array
         newDays[dayIndex].activities.splice(activityIndex, 1); //splices the activity from the specific day index,deletes 1 element
         setDays(newDays);  //updates the state
@@ -49,6 +51,8 @@ function PlannerForm() {
         newDays.splice(dayIndex, 1); //delete the whole day array at the index (not just the day object)
         setDays(newDays);
     }
+
+    
 
 
     return (
@@ -136,7 +140,7 @@ function PlannerForm() {
 
                                 <button
                                     className='delete-activity-button'
-                                    type="button" //Parameters: Delete the specific activity index at the specific day index
+                                    type="button" //Arguements: Delete the specific activity index at the specific day index
                                     onClick={() => handleActivityDelete(dayIndex, activityIndex)}>Delete Activity</button>
                                     
 
@@ -145,7 +149,7 @@ function PlannerForm() {
                         <div>
 
                             <button className='activity-button'
-                                type="button" //Add activity at the specific dayIndex listed as a parameter
+                                type="button" //Add activity at the specific dayIndex listed as an argument
                                 onClick={() => handleAddActivity(dayIndex)}>Add Activity</button>
 
                         </div>
@@ -159,12 +163,12 @@ function PlannerForm() {
                     </fieldset>
                 ))}
                 <button className='add-day-button'
-                    type="button" //No parameters so no need for arrow function to call function
+                    type="button" //No arguments so no need for arrow function to call function
                     onClick={handleAddDay}>Add Day</button>
 
 
             </form>
-
+                <input type="submit" value="Save Trip" id="submit-button" onClick="submitForm()"></input>
         </>
     )
 }
