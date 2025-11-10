@@ -11,10 +11,7 @@ function PlannerForm() {
 
     }])
 
-    
-
-
-
+   
     const handleAddActivity = (dayIndex) => {
         const newDays = [...days];  //make a copy of the "days" array without mutating original
         newDays[dayIndex].activities.push({  //adds a blank activity object to the specific day index
@@ -52,13 +49,23 @@ function PlannerForm() {
         setDays(newDays);
     }
 
-    
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        alert('Trip Successfully Saved!')
+        setDays([{city: "",
+        date: "",
+        activities: [
+            { activity: "", time: "", notes: "" }
+        ]
+
+    }])
+    }
 
 
     return (
         <>
             <h1 className='trip-details'>Trip Details</h1>
-            <form className='form'> 
+            <form className='form' onSubmit={handleSubmit}> 
                 {days.map((day, dayIndex) => ( //map in react needs a unique key to match elements when updating the virtual DOM. 
                                                 //map through the days array to make a new form fieldset for each new day
                     <fieldset key={dayIndex}>
@@ -69,11 +76,13 @@ function PlannerForm() {
                             id="city"
                             name="city"
                             placeholder='City Name'
+                            value={day.city}
                             onChange={e => { //updates when user types in input field
                                 const newDays = [...days]; //create array copy without mutating original
                                 newDays[dayIndex].city = e.target.value; //sets the city input at the specific day index to the value the user is typing
                                 setDays(newDays);
                             }}
+                            
 
                         />
                         <label>What is the date of activities?</label>
@@ -82,6 +91,7 @@ function PlannerForm() {
                             name="date"
                             type='date'
                             placeholder='Date of Activities'
+                            value={day.date}
                             onChange={e => {
                                 const newDays = [...days];
                                 newDays[dayIndex].date = e.target.value;
@@ -96,12 +106,13 @@ function PlannerForm() {
                         {day.activities.map((activity, activityIndex) => (
                             <div key={activityIndex} className='activity-component'>
                                 <div className='activity-input'>
-                                    <label>Input Activity</label>
+                                    <label>Name of Activity</label>
 
                                     <input
                                         id="activity"
                                         name="activity"
                                         placeholder='Activity'
+                                        value={activity.activity} //allows react to access and clear the activity input on submit
                                         onChange={e => {
                                             const newDays = [...days];
                                             newDays[dayIndex].activities[activityIndex].activity = e.target.value;
@@ -116,6 +127,7 @@ function PlannerForm() {
                                         id="time"
                                         name="time"
                                         placeholder='Time of Activity'
+                                        value={activity.time} //allows react to access and clear the time input on submit
                                         onChange={e => {
                                             const newDays = [...days];
                                             newDays[dayIndex].activities[activityIndex].time = e.target.value;
@@ -130,6 +142,7 @@ function PlannerForm() {
                                         name="notes"
                                         rows={5}
                                         placeholder='Add Notes'
+                                        value={activity.notes}  //allows react to access and clear the notes input on submit
                                         onChange={e => {
                                             const newDays = [...days];
                                             newDays[dayIndex].activities[activityIndex].notes = e.target.value;
@@ -168,7 +181,7 @@ function PlannerForm() {
 
 
             </form>
-                <input type="submit" value="Save Trip" id="submit-button" onClick="submitForm()"></input>
+                <input type="submit" value="Save Trip" id="submit-button" onClick={handleSubmit}></input>
         </>
     )
 }

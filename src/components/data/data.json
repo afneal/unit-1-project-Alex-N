@@ -1,0 +1,16 @@
+{
+    "tripData": [
+        {
+            "city": "Tokyo",
+            "date": "May 5, 2025",
+            "activities": [
+                {
+                    "activity": "Go to Tokyo Tower",
+                    "time": "11:00 am",
+                    "notes": "Buy tickets online"
+                }
+            ]
+        }
+    ]
+}
+
