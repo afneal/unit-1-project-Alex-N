@@ -148,3 +148,10 @@ h1 {
     color: rgb(207, 141, 48);
 }
 
+
+/* savedtrips */
+.mock-trip-details {
+    flex: 2;
+    margin: auto;
+    align-items: center;
+}

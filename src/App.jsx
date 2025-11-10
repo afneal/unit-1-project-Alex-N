@@ -6,8 +6,7 @@ import Header from './components/layout/Header'
 import travelBackground from './assets/travelBackground.jpg';
 import Footer from './components/layout/Footer'
 import Planner from './components/Pages/Planner'
-
-
+import SavedTrips from './components/Pages/SavedTrips'
 
 import './App.css'
 import TravelTips from './components/Pages/TravelTips'
@@ -27,6 +26,7 @@ function App() {
         <Route path="/traveltips" element={<TravelTips />} />
         <Route path="/planner" element={<Planner />} />
         <Route path="/plannerform" element={<PlannerForm />} />
+        <Route path="/savedtrips" element={<SavedTrips />} />
         
         {/* <Route path="/resources" element={<Resources />} /> */}
       </Routes>

@@ -45,7 +45,7 @@ function PlannerForm() {
 
     const handleDayDelete = (dayIndex) => {
         const newDays = [...days];
-        newDays.splice(dayIndex, 1); //delete the whole day array at the index (not just the day object)
+        newDays.splice(dayIndex, 1); //delete the whole day array at the index (not just the day object), splice is for arrays
         setDays(newDays);
     }
 

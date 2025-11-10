@@ -8,6 +8,7 @@ function NavMenu() {
             <li><Link to="/traveltips">Travel Tips</Link></li>
             <li><Link to="/resources">Resources</Link></li>
             <li><Link to="/plannerform">Planner Form</Link></li>
+            <li><Link to="/savedtrips">Saved Trips</Link></li>
         </div>
     )
 }
