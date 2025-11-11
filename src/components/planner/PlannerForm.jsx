@@ -65,11 +65,11 @@ function PlannerForm() {
     return (
         <>
             <h1 className='trip-details'>Trip Details</h1>
-            <form className='form' onSubmit={handleSubmit}> 
+            <form className='planner-form' onSubmit={handleSubmit}> 
                 {days.map((day, dayIndex) => ( //map in react needs a unique key to match elements when updating the virtual DOM. 
                                                 //map through the days array to make a new form fieldset for each new day
                     <fieldset key={dayIndex}>
-                        <legend>Day and Location</legend>
+                        <legend>Day and Activities</legend>
 
                         <label>What is the city?</label>
                         <input

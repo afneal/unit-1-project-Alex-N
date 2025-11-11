@@ -1,55 +1,14 @@
-import { useState } from 'react';
 
-function PackingList() {
-    const [list, setList] = useState([]); //set empty array 
-    const [inputValue, setInputValue] = useState(""); //set emtpy string to hold values
-    
-
-const handleAddItem = (event) => {
-    event.preventDefault();
-    const newItem = [...list]; //copy array without mutating original
-    newItem.push(inputValue); //add user input to array
-    setList(newItem); //set state of array to inform react of change
-    setInputValue(""); //clear input box
-}
+import List from "../PlannerComponents/List";
 
 
-
-const handleDeleteItem = (itemIndex) => { //item index as parameter to find correct item to delete
-     const newList = [...list];
-     newList.splice(itemIndex, 1); //splice away the item from the list at item index, 1 item
-     setList(newList);
-
-}
-
-
-
+function PackingList () {
     return (
-        <>
-            <div id='packing-list'>
-                <h1>Packing List</h1>
-                <ul>
-                    {list.map((item, itemIndex) => ( //map through array of items
-                        <li key={itemIndex}>{item}<button className='delete-item-button' //map adds delete button to each item input
-                                type="button"
-                                onClick={() => handleDeleteItem(itemIndex)}>Delete Item</button></li>
-                    ))}
-                    <li>
-                        <input
-                            id="list-item"
-                            name="list-item"
-                            placeholder="Add an Item"
-                            value={inputValue}
-                            onChange={e => {
-                                setInputValue(e.target.value) //sets input value state to the user typed input
-                            }}
-                        />
-                    </li>
-                </ul>
-            </div>
-            <button id="add-item-button" onClick={handleAddItem}>Add</button>
-        </>
-    )
-}
+
+<div>
+    <h1>Packing List</h1>
+    <List />
+</div>
+)}
 
 export default PackingList;
