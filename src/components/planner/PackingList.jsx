@@ -1,21 +1,21 @@
 import { useState } from 'react';
 
 function PackingList() {
-    const [list, setList] = useState([]);
-    const [inputValue, setInputValue] = useState("");
+    const [list, setList] = useState([]); //set empty array 
+    const [inputValue, setInputValue] = useState(""); //set emtpy string to hold values
     
 
-const handleSubmit = (event) => {
+const handleAddItem = (event) => {
     event.preventDefault();
-    const newItem = [...list];
-    newItem.push(inputValue);
-    setList(newItem);
-    setInputValue("");
+    const newItem = [...list]; //copy array without mutating original
+    newItem.push(inputValue); //add user input to array
+    setList(newItem); //set state of array to inform react of change
+    setInputValue(""); //clear input box
 }
 
 
 
-const handleDeleteItem = (itemIndex) => {
+const handleDeleteItem = (itemIndex) => { //item index as parameter to find correct item to delete
      const newList = [...list];
      newList.splice(itemIndex, 1); //splice away the item from the list at item index, 1 item
      setList(newList);
@@ -23,19 +23,14 @@ const handleDeleteItem = (itemIndex) => {
 }
 
 
-const handleActivityDelete = (dayIndex, activityIndex) => { //pass in indexes as parameters to find the correct activity per day to delete
-        const newDays = [...days];  //makes copy of days array
-        newDays[dayIndex].activities.splice(activityIndex, 1); //splices the activity from the specific day index,deletes 1 element
-        setDays(newDays);  //updates the state
-    }
 
     return (
         <>
             <div id='packing-list'>
                 <h1>Packing List</h1>
                 <ul>
-                    {list.map((item, itemIndex) => (
-                        <li key={itemIndex}>{item}<button className='delete-item-button'
+                    {list.map((item, itemIndex) => ( //map through array of items
+                        <li key={itemIndex}>{item}<button className='delete-item-button' //map adds delete button to each item input
                                 type="button"
                                 onClick={() => handleDeleteItem(itemIndex)}>Delete Item</button></li>
                     ))}
@@ -46,13 +41,13 @@ const handleActivityDelete = (dayIndex, activityIndex) => { //pass in indexes as
                             placeholder="Add an Item"
                             value={inputValue}
                             onChange={e => {
-                                setInputValue(e.target.value)
+                                setInputValue(e.target.value) //sets input value state to the user typed input
                             }}
                         />
                     </li>
                 </ul>
             </div>
-            <button id="list-submit-button" onClick={handleSubmit}>Add</button>
+            <button id="add-item-button" onClick={handleAddItem}>Add</button>
         </>
     )
 }
