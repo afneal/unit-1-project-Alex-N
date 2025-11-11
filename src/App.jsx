@@ -1,5 +1,4 @@
-import { useState } from 'react'
-import React from 'react'
+
 import { Routes, Route } from 'react-router'
 import Homepage from './components/pages/Homepage'
 import Header from './components/layout/Header'

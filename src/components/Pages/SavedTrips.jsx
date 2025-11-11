@@ -1,4 +1,5 @@
 import PackingList from "../planner/PackingList";
+import ReminderList from "../planner/Reminders";
 import { useState } from 'react';
 
 
@@ -53,6 +54,7 @@ function SavedTrips() {
             </div >
             <div>
                 <PackingList />
+                <ReminderList />
             </div>
         </>
 
