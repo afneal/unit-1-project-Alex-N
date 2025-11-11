@@ -9,7 +9,7 @@ import SavedTrips from './components/Pages/SavedTrips'
 
 import './App.css'
 import TravelTips from './components/Pages/TravelTips'
-import PlannerForm from './components/Pages/PlannerForm'
+import BuildTrips from './components/Pages/BuildTrip';
 
 function App() {
   
@@ -24,7 +24,7 @@ function App() {
         <Route path="/" element={<Homepage />} />
         <Route path="/traveltips" element={<TravelTips />} />
         <Route path="/planner" element={<Planner />} />
-        <Route path="/plannerform" element={<PlannerForm />} />
+        <Route path="/buildtrips" element={<BuildTrips />} />
         <Route path="/savedtrips" element={<SavedTrips />} />
         
         {/* <Route path="/resources" element={<Resources />} /> */}
