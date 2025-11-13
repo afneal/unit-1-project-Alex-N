@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function List() {
+function List(packingList, setPackingList) {
     const [list, setList] = useState([]); //set empty array 
     const [inputValue, setInputValue] = useState(""); //set emtpy string to hold values
     

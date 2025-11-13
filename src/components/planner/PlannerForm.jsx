@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-function PlannerForm() {
+function PlannerForm({ trips, setTrips }) {
 
     const [days, setDays] = useState([{ //initialize days array with useState hook to empty strings in the days objects
         city: "",
@@ -11,7 +11,7 @@ function PlannerForm() {
 
     }])
 
-   
+
     const handleAddActivity = (dayIndex) => {
         const newDays = [...days];  //make a copy of the "days" array without mutating original
         newDays[dayIndex].activities.push({  //adds a blank activity object to the specific day index
@@ -51,23 +51,30 @@ function PlannerForm() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        console.log("trips before update", trips)
+        setTrips([...trips, days]) //make copy of empty trips array, add days to the copy
+        console.log("trips after update", [...trips, days])
         alert('Trip Successfully Saved!')
-        setDays([{city: "",
-        date: "",
-        activities: [
-            { activity: "", time: "", notes: "" }
-        ]
+        setDays([{
+            city: "",
+            date: "",
+            activities: [
+                { activity: "", time: "", notes: "" }
+            ]
 
-    }])
+
+        }])
+        
+        
     }
 
 
     return (
         <>
             <h1 className='trip-details'>Trip Details</h1>
-            <form className='planner-form' onSubmit={handleSubmit}> 
+            <form className='planner-form' onSubmit={handleSubmit}>
                 {days.map((day, dayIndex) => ( //map in react needs a unique key to match elements when updating the virtual DOM. 
-                                                //map through the days array to make a new form fieldset for each new day
+                    //map through the days array to make a new form fieldset for each new day
                     <fieldset key={dayIndex}>
                         <legend>Day and Activities</legend>
 
@@ -82,7 +89,7 @@ function PlannerForm() {
                                 newDays[dayIndex].city = e.target.value; //sets the city input at the specific day index to the value the user is typing
                                 setDays(newDays);
                             }}
-                            
+
 
                         />
                         <label>What is the date of activities?</label>
@@ -155,7 +162,7 @@ function PlannerForm() {
                                     className='delete-activity-button'
                                     type="button" //Arguements: Delete the specific activity index at the specific day index
                                     onClick={() => handleActivityDelete(dayIndex, activityIndex)}>Delete Activity</button>
-                                    
+
 
                             </div>
                         ))}
@@ -181,10 +188,12 @@ function PlannerForm() {
 
 
             </form>
-                <input type="submit" value="Save Trip" id="submit-button" onClick={handleSubmit}></input>
+            <input type="submit" value="Save Trip" id="submit-button" onClick={handleSubmit}></input>
         </>
     )
 }
 
 
 export default PlannerForm;
+
+//toast notification instead of alert
