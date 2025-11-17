@@ -1,6 +1,7 @@
 import { useState } from 'react';
+import SubmitButton from '../PlannerComponents/SubmitButton';
 
-function FlightInfo() {
+function FlightInfo({ flightData, setFlightData, connFlightData, setConnFlightData }) {
 
     const [flights, setFlights] = useState([ //array of objects to map through flights
         {
@@ -9,9 +10,11 @@ function FlightInfo() {
             departureTime: "",
             arrivalAirportCode: "",
             arrivalTime: "",
-            seatNumber: ""
+            seatNumber: "",
+            connections: []
         }]
     );
+
 
     const [connFlight, setConnFlight] = useState([]); //initialize to empty array so that length is 0, 
     // must be array in case there are multiple connecting flights and need to map (array of objects)
@@ -19,6 +22,8 @@ function FlightInfo() {
     const handleSubmit = (event) => {
         event.preventDefault();
         alert("Flight Information Saved!");
+        setFlightData([...flightData, ...flights]);
+        setConnFlightData([...connFlightData, ...connFlight]);
         setFlights([{
             date: "",
             departureAirportCode: "",
@@ -28,7 +33,10 @@ function FlightInfo() {
             seatNumber: ""
         }])
         setConnFlight([])
+
     }
+
+
 
     const handleAddFlight = () => {
         setFlights([...flights, {
@@ -178,16 +186,19 @@ function FlightInfo() {
                             />
 
 
-                            <button type="button" onClick={handleAddConnection}>Add Connecting Flight</button>
+                            <button type="button" onClick={handleAddConnection} className='add-connecting-button'>Add Connecting Flight</button>
+
                             <button
                                 className='delete-flight-button'
                                 type="button" //Arguements: Delete the specific flight at the specific index
                                 onClick={() => handleFlightDelete(flightElement, flightIndex)}>Delete Flight</button>
                         </fieldset>
                     ))}
+                    <SubmitButton onClick={handleSubmit} label="Save Flight Details" className='flight-submit-button' />
+
+                    <button type="button" onClick={handleAddFlight} className='add-flight-button'>Add New Flight</button>
                 </form>
-                <input type="submit" value="Save Flight Details" id="submit-button" onClick={handleSubmit}></input>
-                <button type="button" onClick={handleAddFlight}>Add New Flight</button>
+
             </div>
 
         </>

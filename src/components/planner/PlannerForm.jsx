@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import SubmitButton from '../PlannerComponents/SubmitButton';
 
 function PlannerForm({ trips, setTrips }) {
 
@@ -51,9 +52,9 @@ function PlannerForm({ trips, setTrips }) {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log("trips before update", trips)
+
         setTrips([...trips, days]) //make copy of empty trips array, add days to the copy
-        console.log("trips after update", [...trips, days])
+
         alert('Trip Successfully Saved!')
         setDays([{
             city: "",
@@ -64,8 +65,8 @@ function PlannerForm({ trips, setTrips }) {
 
 
         }])
-        
-        
+
+
     }
 
 
@@ -78,7 +79,7 @@ function PlannerForm({ trips, setTrips }) {
                     <fieldset key={dayIndex}>
                         <legend>Day and Activities</legend>
 
-                        <label>What is the city?</label>
+                        <label>City Name:</label>
                         <input
                             id="city"
                             name="city"
@@ -92,7 +93,7 @@ function PlannerForm({ trips, setTrips }) {
 
 
                         />
-                        <label>What is the date of activities?</label>
+                        <label>Date of Activities:</label>
                         <input
                             id="date"
                             name="date"
@@ -113,7 +114,7 @@ function PlannerForm({ trips, setTrips }) {
                         {day.activities.map((activity, activityIndex) => (
                             <div key={activityIndex} className='activity-component'>
                                 <div className='activity-input'>
-                                    <label>Name of Activity</label>
+                                    <label>Name of Activity:</label>
 
                                     <input
                                         id="activity"
@@ -129,7 +130,7 @@ function PlannerForm({ trips, setTrips }) {
 
                                 </div>
                                 <div className='time-input'>
-                                    <label>Time of Activity</label>
+                                    <label>Time of Activity:</label>
                                     <input
                                         id="time"
                                         name="time"
@@ -143,7 +144,7 @@ function PlannerForm({ trips, setTrips }) {
                                     />
                                 </div>
                                 <div className='activity-notes'>
-                                    <label>Notes</label>
+                                    <label>Notes:</label>
                                     <textarea
                                         id="notes"
                                         name="notes"
@@ -158,27 +159,24 @@ function PlannerForm({ trips, setTrips }) {
                                     />
                                 </div>
 
-                                <button
-                                    className='delete-activity-button'
-                                    type="button" //Arguements: Delete the specific activity index at the specific day index
-                                    onClick={() => handleActivityDelete(dayIndex, activityIndex)}>Delete Activity</button>
+                                <div className='form-button-group'>
+                                    <button className='activity-button'
+                                        type="button" //Add activity at the specific dayIndex listed as an argument
+                                        onClick={() => handleAddActivity(dayIndex)}>Add Activity</button>
 
+                                    <button
+                                        className='delete-activity-button'
+                                        type="button" //Arguements: Delete the specific activity index at the specific day index
+                                        onClick={() => handleActivityDelete(dayIndex, activityIndex)}>Delete Activity</button>
 
+                                 
+                                    <button className='delete-day-button'
+                                        type="button"
+                                        onClick={() => handleDayDelete(dayIndex)}>Delete Day</button>
+
+                                </div>
                             </div>
                         ))}
-                        <div>
-
-                            <button className='activity-button'
-                                type="button" //Add activity at the specific dayIndex listed as an argument
-                                onClick={() => handleAddActivity(dayIndex)}>Add Activity</button>
-
-                        </div>
-
-                        <div>
-                            <button className='delete-day-button'
-                                type="button"
-                                onClick={() => handleDayDelete(dayIndex)}>Delete Day</button>
-                        </div>
 
                     </fieldset>
                 ))}
@@ -186,9 +184,10 @@ function PlannerForm({ trips, setTrips }) {
                     type="button" //No arguments so no need for arrow function to call function
                     onClick={handleAddDay}>Add Day</button>
 
-
+                <SubmitButton onClick={handleSubmit} label="Save Trip Details" className='trip-submit-button' />
             </form>
-            <input type="submit" value="Save Trip" id="submit-button" onClick={handleSubmit}></input>
+
+
         </>
     )
 }

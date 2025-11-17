@@ -1,48 +1,38 @@
-
+import { useState } from 'react'
 import List from "../PlannerComponents/List";
+import SubmitButton from "../PlannerComponents/SubmitButton";
 
 
-function PackingList({packingList, setPackingList}) {
+function PackingList({ packingList, setPackingList, packingListData, setPackingListData }) {
+    const [list, setList] = useState([]); //set emtpy array
 
-    const savePackingList = (event) => {
+
+    const handleSubmit = (event) => {
         event.preventDefault();
-        setPackingList([...packingList, list])
+        setPackingList([...packingList, ...list]);
+        setPackingListData([...packingListData, list])
         alert("Packing List Successfully Saved!");
-        setPackingList("");
+        setList([]);
+
     }
 
 
 
     return (
 
-    
-<div>
-    <h1>Packing List</h1>
-    <List />
+        //pass list and setList states to child
+        <div>
+            <h1 className='packing-list'>Packing List</h1>
+            <form className='packing-list-form' >
+                <List list={list} setList={setList} />
 
-    <button type="button" onClick={savePackingList}>Save Packing List</button>
-</div >
-)
+                <SubmitButton onClick={handleSubmit} label="Save Packing List" className='packing-list-submit-button' />
+            </form>
+        </div >
+    )
 }
 
 export default PackingList;
 
-// const handleSubmit = (event) => {
-//         event.preventDefault();
-        
-//         setTrips([...trips, days]) //make copy of empty trips array, add days to the copy
-       
-//         alert('Trip Successfully Saved!')
-//         setDays([{
-//             city: "",
-//             date: "",
-//             activities: [
-//                 { activity: "", time: "", notes: "" }
-//             ]
 
-
-//         }])
-        
-        
-//     }
 

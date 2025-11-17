@@ -5,7 +5,7 @@ function Footer() {
     return (
         <footer>
             <div>
-                <p>&copy; {thisYear} Alexandria Neal</p>
+                <p>&copy; {thisYear} My Travel Planner</p>
             </div>
 
         </footer>

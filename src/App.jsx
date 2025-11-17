@@ -10,11 +10,21 @@ import { useState } from 'react'
 import './App.css'
 import TravelTips from './components/Pages/TravelTips'
 import BuildTrips from './components/Pages/BuildTrip';
+import FlightInfo from './components/planner/FlightInfo';
+import List from './components/PlannerComponents/List';
 
 function App() {
   
 const [trips, setTrips] = useState([]);
-const [packingList, setPackingList] = useState("")
+const [packingList, setPackingList] = useState([])
+const [list, setList] = useState([])
+const [flightData, setFlightData] = useState([]);
+const [connFlightData, setConnFlightData] = useState([]);
+const [packingListData, setPackingListData] = useState([]);
+const [reminderList, setReminderList] = useState([])
+const [reminderListData, setReminderListData] = useState([])
+
+
 
   return (
     <>
@@ -26,8 +36,16 @@ const [packingList, setPackingList] = useState("")
         <Route path="/" element={<Homepage />} />
         <Route path="/traveltips" element={<TravelTips />} />
         <Route path="/planner" element={<Planner />} />
-        <Route path="/buildtrips" element={<BuildTrips trips={trips} setTrips={setTrips} packingList={packingList} setPackingList={setPackingList}/>} />
-        <Route path="/savedtrips" element={<SavedTrips trips={trips} setTrips={setTrips} packingList={packingList} setPackingList={setPackingList}/>} />
+        <Route path="/buildtrips" element={<BuildTrips trips={trips} setTrips={setTrips} flightData={flightData} setFlightData={setFlightData}
+         connFlightData={connFlightData} setConnFlightData={setConnFlightData} packingList={packingList} setPackingList={setPackingList} 
+         packingListData={packingListData} setPackingListData={setPackingListData} list={list} setList={setList} reminderList={reminderList} setReminderList={setReminderList}
+         reminderListData={reminderListData} setReminderListData={setReminderListData}/>} />
+
+        <Route path="/savedtrips" element={<SavedTrips trips={trips} setTrips={setTrips} connFlightData={connFlightData} setConnFlightData={setConnFlightData} 
+        packingList={packingList} setPackingList={setPackingList} packingListData={packingListData} setPackingListData={setPackingListData}
+        list={list} setList={setList} flightData={flightData} setFlightData={setFlightData} reminderList={reminderList} setReminderList={setReminderList}
+         reminderListData={reminderListData} setReminderListData={setReminderListData}/>} />
+        
         
         {/* <Route path="/resources" element={<Resources />} /> */}
       </Routes>
