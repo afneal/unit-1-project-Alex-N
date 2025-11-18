@@ -21,8 +21,12 @@ function FlightInfo({ flightData, setFlightData, connFlightData, setConnFlightDa
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        console.log(flightData)
+        const flightsWithConnections = flights.map(flight => ({
+            ...flight, connections: connFlight
+        }))
         alert("Flight Information Saved!");
-        setFlightData([...flightData, ...flights]);
+        setFlightData([...flightData, ...flightsWithConnections]);
         setConnFlightData([...connFlightData, ...connFlight]);
         setFlights([{
             date: "",
