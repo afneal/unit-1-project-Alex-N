@@ -206,9 +206,8 @@ h1 {
 #saved-activity-data,
 .saved-connections-data {
     background: white;
-    margin-top: 10px;
+    margin: 10px;
     padding-left: 10px;
-    /* border: 1px solid black; */
     border-radius: 12px;
     box-shadow: 0 0 5px;
     font-size: 1rem;
@@ -237,11 +236,57 @@ h1 {
     border-bottom: none;
 }
 
+#saved-trip-data, .saved-connection, #saved-activity-data, #saved-flights-data,
+.reminder-list, .saved-packing-list {
+    font-size: 18px;
+}
+
+
+.flight-date-box {
+    font-size: 25px;
+    text-align: center;
+}
+
+.trip-date-box {
+    font-size: 25px;
+    text-align: center;
+}
+
+
+
+/*Build Trip */
+
+
+.outer-wrapper-buildTrips {
+    padding: 20px;
+    box-sizing: border-box;
+
+}
+
+
+.packing-reminder-buildTrips {
+    flex: 1;
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+
+}
+
+
+.packing-box-buildTrips,
+.reminder-box-buildTrips {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+}
 
 
 
 
-
+/* Planner Form */
 
 .planner-form {
     max-width: 800px;
@@ -431,21 +476,54 @@ h1 {
 
 .delete-item-button {
     padding: 8px 15px;
-    margin: 5px 5px 0 0;
+    /* margin: 5px 5px 0 0; */
+    /* margin-left: 10px; */
     border: none;
     border-radius: 5px;
     cursor: pointer;
     background-color: red;
     color: black;
+    vertical-align: middle;
+    line-height: 24px;
     margin: 10px;
+}
 
+
+
+.reminder-list-form li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style-position: inside;
+    padding-left: 0;
+}
+
+.reminder-list-form li::before {
+    content: "\2705";
+    color: green;
+    font-size: 1rem;
+}
+
+.packing-list-form li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style-position: inside;
+    padding-left: 0;
+}
+
+.packing-list-form li::before {
+    content: "\2705";
+    color: green;
+    font-size: 1rem;
 }
 
 @media (min-width: 480px) {
 
     .main-trip-container,
     .flights-reminders-container,
-    .trip-packing-container {
+    .trip-packing-container,
+    .packing-reminder-buildTrips {
         flex-direction: column;
         gap: 10px;
     }
@@ -459,7 +537,8 @@ h1 {
 
     .main-trip-container,
     .flights-reminders-container,
-    .trip-packing-container {
+    .trip-packing-container, 
+    .packing-reminder-buildTrips {
         flex-direction: row;
         font-size: 20px;
         align-items: stretch;
@@ -528,7 +607,8 @@ nav ul li {
 
     .main-trip-container,
     .flights-reminders-container,
-    .trip-packing-container {
+    .trip-packing-container, 
+    .packing-reminder-buildTrips {
         flex-direction: row;
         gap: 10px;
         align-items: stretch;
@@ -574,7 +654,7 @@ nav ul li {
 
 .nav-icon-button :hover {
     background-color: #e0e0e0;
-    
+
 }
 
 .isExpanded {
@@ -592,7 +672,7 @@ nav ul li {
     text-decoration: none;
     font-size: 17px;
     background-color: #f0f0f0;
-    
+
 }
 
 .isExpanded li a:hover {
