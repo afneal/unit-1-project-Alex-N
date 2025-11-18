@@ -1,16 +1,21 @@
 import { Link } from 'react-router';
+import { useState } from 'react';
+
 
 function NavMenu() {
+    
     return (
-        <div className='nav-menu'>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/planner">Planner</Link></li>
-            <li><Link to="/traveltips">Travel Tips</Link></li>
-            <li><Link to="/resources">Resources</Link></li>
-            <li><Link to="/buildtrips">Build Trip</Link></li>
-            <li><Link to="/savedtrips">Saved Trips</Link></li>
-        </div>
+        <nav className='nav-menu'>
+            <ul>
+                <li><Link to="/">Home</Link></li>
+                <li><Link to="/traveltips">Travel Tips</Link></li>
+                <li><Link to="/resources">Resources</Link></li>
+                <li><Link to="/buildtrips">Build Trip</Link></li>
+                <li><Link to="/savedtrips">Saved Trips</Link></li>
+            </ul>
+        </nav>
     )
 }
 
 export default NavMenu;
+
