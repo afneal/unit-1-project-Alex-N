@@ -19,16 +19,19 @@ function PackingList({ packingList, setPackingList, packingListData, setPackingL
 
 
     return (
-
         //pass list and setList states to child
-        <div>
-            <h1 className='packing-list'>Packing List</h1>
-            <form className='packing-list-form' >
-                <List list={list} setList={setList} />
+        <>
+        
+            <h1 className='packing-list-title'>Packing List</h1>
+            <div className='packing-list-input-container'>
 
-                <SubmitButton onClick={handleSubmit} label="Save Packing List" className='packing-list-submit-button' />
-            </form>
-        </div >
+                <form className='packing-list-form' >
+                    <List list={list} setList={setList} />
+
+                    <SubmitButton onClick={handleSubmit} label="Save Packing List" className='packing-list-submit-button' />
+                </form>
+            </div >
+        </>
     )
 }
 

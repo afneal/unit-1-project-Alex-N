@@ -160,16 +160,16 @@ function PlannerForm({ trips, setTrips }) {
                                 </div>
 
                                 <div className='form-button-group'>
-                                    <button className='activity-button'
+                                    {/* <button className='activity-button'
                                         type="button" //Add activity at the specific dayIndex listed as an argument
-                                        onClick={() => handleAddActivity(dayIndex)}>Add Activity</button>
+                                        onClick={() => handleAddActivity(dayIndex)}>Add Activity</button> */}
 
                                     <button
                                         className='delete-activity-button'
                                         type="button" //Arguements: Delete the specific activity index at the specific day index
                                         onClick={() => handleActivityDelete(dayIndex, activityIndex)}>Delete Activity</button>
 
-                                 
+
                                     <button className='delete-day-button'
                                         type="button"
                                         onClick={() => handleDayDelete(dayIndex)}>Delete Day</button>
@@ -177,12 +177,16 @@ function PlannerForm({ trips, setTrips }) {
                                 </div>
                             </div>
                         ))}
-
+                        <button className='activity-button'
+                            type="button" //Add activity at the specific dayIndex listed as an argument
+                            onClick={() => handleAddActivity(dayIndex)}>Add Activity</button>
                     </fieldset>
                 ))}
                 <button className='add-day-button'
                     type="button" //No arguments so no need for arrow function to call function
                     onClick={handleAddDay}>Add Day</button>
+
+
 
                 <SubmitButton onClick={handleSubmit} label="Save Trip Details" className='trip-submit-button' />
             </form>

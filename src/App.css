@@ -324,6 +324,7 @@ h1 {
     background-color: lightblue;
 }
 
+
 .trip-submit-button {
     background-color: green;
 }
@@ -410,3 +411,47 @@ h1 {
 .trip-details {
     text-align: center;
 }
+
+.packing-list-input-container, .reminder-list-input-container {
+   max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px black;
+}
+
+.packing-list-title, .reminder-list-title {
+    text-align: center;
+}
+
+#add-item-button {
+    background-color: lightblue;
+    padding: 8px 15px;
+    margin: 5px 5px 0 0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+.packing-list-submit-button, .reminder-list-submit-button {
+    padding: 8px 15px;
+    margin: 5px 5px 0 0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: green;
+}
+
+.delete-item-button {
+    padding: 8px 15px;
+    margin: 5px 5px 0 0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: red;
+    color: black;
+    margin: 10px;
+
+}
+

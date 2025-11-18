@@ -13,14 +13,17 @@ function ReminderList({ reminderList, setReminderList, reminderListData, setRemi
         setList([])
     }
     return (
-        <div>
-            <h1 className="reminder-list">Important Reminders</h1>
-            <form className="reminder-list-form">
-                <List list={list} setList={setList}/>
-                <SubmitButton onClick={handleSubmit} label="Save Reminder List" className="reminder-list-submit-button" />
-            </form>
+        <>
+            <h1 className="reminder-list-title">Important Reminders</h1>
+            <div className='reminder-list-input-container'>
 
-        </div>
+                <form className="reminder-list-form">
+                    <List list={list} setList={setList} />
+                    <SubmitButton onClick={handleSubmit} label="Save Reminder List" className="reminder-list-submit-button" />
+                </form>
+
+            </div>
+        </>
     )
 }
 
