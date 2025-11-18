@@ -10,8 +10,9 @@ import { useState } from 'react'
 import './App.css'
 import TravelTips from './components/Pages/TravelTips'
 import BuildTrips from './components/Pages/BuildTrip';
-import FlightInfo from './components/planner/FlightInfo';
-import List from './components/PlannerComponents/List';
+import ExchangeRates from './components/Pages/Resources';
+// import FlightInfo from './components/planner/FlightInfo';
+// import List from './components/PlannerComponents/List';
 import { ToastContainer } from 'react-toastify';
 
 function App() {
@@ -43,8 +44,7 @@ const [reminderList, setReminderList] = useState([])
         list={list} setList={setList} flightData={flightData} setFlightData={setFlightData} reminderList={reminderList} setReminderList={setReminderList}
          />} />
         
-        
-        {/* <Route path="/resources" element={<Resources />} /> */}
+        <Route path="/resources" element={<ExchangeRates />} />
       </Routes>
 
       <Footer />
