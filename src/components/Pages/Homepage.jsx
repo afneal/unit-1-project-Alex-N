@@ -8,7 +8,7 @@ function Homepage () {
         <div className='homepage'>
             <h1>Welcome to Your Trip Planner!</h1>
             <p>
-                <Link to="/planner" className='homepage-main'>Get Started Now!</Link>
+                <Link to="/buildTrips" className='homepage-main'>Get Started Now!</Link>
             </p>
         </div>
     </main>

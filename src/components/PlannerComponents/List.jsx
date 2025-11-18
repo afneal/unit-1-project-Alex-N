@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-function List() {
-    const [list, setList] = useState([]); //set empty array 
+function List({list=[], setList}) { //pass list and setList as props from packingList
+    
     const [inputValue, setInputValue] = useState(""); //set emtpy string to hold values
     
 
@@ -47,7 +47,7 @@ const handleDeleteItem = (itemIndex) => { //item index as parameter to find corr
                     </li>
                 </ul>
             </div>
-            <button id="add-item-button" onClick={handleAddItem}>Add</button>
+            <button type="button" id="add-item-button" onClick={handleAddItem}>Add</button>
         </>
     )
 }
