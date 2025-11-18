@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 
 
-function SavedTrips({ trips, flightData, connFlightData, packingListData, reminderListData }) { //pass props from parent app to this child
+function SavedTrips({ trips, flightData, packingList, reminderList }) { //pass props from parent app to this child
 
     return (
         <>
@@ -25,19 +25,23 @@ function SavedTrips({ trips, flightData, connFlightData, packingListData, remind
 
                                         {trip.map((day, dayIndex) => ( //nested day map inside trip 
                                             <div key={dayIndex} className="saved-day">
-                                                City: {day.city}
+                                                <div className="trip-date-box">
+                                                    <strong> Date:</strong> {day.date}
+                                                </div>
                                                 <br />
-                                                Date: {day.date}
+                                                <strong> City:</strong> {day.city}
+                                                <br />
 
-                                                <br />
+
+
                                                 <div id="saved-activity-data">
                                                     {day.activities.map((activity, activityIndex) => ( //nested activity map inside day inside trip
                                                         <div key={activityIndex} className="saved-activity">
-                                                            Activity: {activity.activity}
+                                                            <strong>Activity:</strong> {activity.activity}
                                                             <br />
-                                                            Time: {activity.time}
+                                                            <strong>Time: </strong>{activity.time}
                                                             <br />
-                                                            Notes: {activity.notes}
+                                                            <strong> Notes:</strong> {activity.notes}
                                                         </div>
                                                     ))}
                                                 </div>
@@ -57,11 +61,10 @@ function SavedTrips({ trips, flightData, connFlightData, packingListData, remind
                     <div className="packing-box">
 
                         <h1>Packing List</h1>
+
                         <div className="packing-list-container">
-                            {packingListData && packingListData.length > 0 ? (
-
-
-                                packingListData.map((list, listIndex) => (
+                            {packingList && packingList.length > 0 ? (
+                                packingList.map((list, listIndex) => (
                                     <div key={listIndex} className="saved-packing-list" >
 
                                         <ul>
@@ -71,14 +74,11 @@ function SavedTrips({ trips, flightData, connFlightData, packingListData, remind
                                         </ul>
                                     </div>
                                 ))
-
                             ) : (
                                 <p>No items added yet.</p>
                             )}
                         </div>
                     </div>
-
-
                 </div>
 
 
@@ -98,26 +98,28 @@ function SavedTrips({ trips, flightData, connFlightData, packingListData, remind
 
                                     {flightData.map((flight, flightIndex) => (
                                         <div key={flightIndex} className="saved-flight" >
-                                            Date: {flight.date} <br/>
-                                            Departure Airport Code: {flight.departureAirportCode}<br/>
-                                            Departure Time: {flight.departureTime}<br/>
+                                            <div className="flight-date-box">
+                                                <strong> Date:</strong> {flight.date} <br />
+                                            </div>
+                                            <strong> Departure Airport Code:</strong> {flight.departureAirportCode}<br />
+                                            <strong>Departure Time:</strong>  {flight.departureTime}<br />
 
                                             {flight.connections && flight.connections.length > 0 && (
                                                 <div className="saved-connections-data">
 
                                                     {flight.connections.map((connection, connectionIndex) => (
                                                         <div key={connectionIndex} className="saved-connection">
-                                                            Connecting Airport Code: {connection.connectingAirportCode}
+                                                            <strong> Connecting Airport Code:</strong> {connection.connectingAirportCode}
                                                             <br />
-                                                            Connecting Flight Time: {connection.connectingFlightTime}
+                                                            <strong>Connecting Flight Time:</strong>  {connection.connectingFlightTime}
                                                         </div>
                                                     ))}
 
                                                 </div>
                                             )}
-                                            Arrival Airport Code: {flight.arrivalAirportCode}<br/>
-                                            Arrival Time: {flight.arrivalTime}<br/>
-                                            Seat Number: {flight.seatNumber}<br/>
+                                            <strong> Arrival Airport Code:</strong>  {flight.arrivalAirportCode}<br />
+                                            <strong> Arrival Time: </strong> {flight.arrivalTime}<br />
+                                            <strong> Seat Number: </strong> {flight.seatNumber}<br />
                                             <hr style={{ margin: "20px 0" }} />
                                         </div>
 
@@ -131,8 +133,44 @@ function SavedTrips({ trips, flightData, connFlightData, packingListData, remind
                             )}
                         </div>
                     </div>
-
                     <div className="reminder-box">
+                        <h1>Reminder List</h1>
+                        <div className="reminder-list-container">
+                            {reminderList && reminderList.length > 0 ? (
+
+
+                                reminderList.map((reminderElement, elementIndex) => (
+                                    <div key={elementIndex} className="reminder-list">
+                                        <ul>
+                                            {reminderElement.map((element, reminderIndex) => (
+                                                <li key={reminderIndex}>{element}</li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                ))
+
+                            ) : (
+                                <p>No reminders added yet.</p>
+                            )}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </>
+    )
+
+}
+
+export default SavedTrips;
+
+
+
+
+
+
+
+
+{/* <div className="reminder-box">
                         <h1>Reminder List</h1>
                         <div className="reminder-list-container">
                             {reminderListData && reminderListData.length > 0 ? (
@@ -152,22 +190,26 @@ function SavedTrips({ trips, flightData, connFlightData, packingListData, remind
                                 <p>No reminders added yet.</p>
                             )}
                         </div>
-                    </div>
+                    </div> */}
+
+{/* <div className="reminder-box">
+                        <h1>Reminder List</h1>
+                        <div className="reminder-list-container">
+                            {reminderListData && reminderListData.length > 0 ? (
 
 
-                </div>
-            </div>
+                                reminderListData.map((reminderElement, elementIndex) => (
+                                    <div key={elementIndex} className="reminder-list">
+                                        <ul>
+                                            {reminderElement.map((element, reminderIndex) => (
+                                                <li key={reminderIndex}>{element}</li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                ))
 
-
-        </>
-    )
-
-}
-
-export default SavedTrips;
-
-
-
-
-
-
+                            ) : (
+                                <p>No reminders added yet.</p>
+                            )}
+                        </div>
+                    </div> */}

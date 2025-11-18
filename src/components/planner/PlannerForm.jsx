@@ -1,5 +1,8 @@
 import { useState } from 'react'
 import SubmitButton from '../PlannerComponents/SubmitButton';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function PlannerForm({ trips, setTrips }) {
 
@@ -55,7 +58,7 @@ function PlannerForm({ trips, setTrips }) {
 
         setTrips([...trips, days]) //make copy of empty trips array, add days to the copy
 
-        alert('Trip Successfully Saved!')
+        
         setDays([{
             city: "",
             date: "",
@@ -65,6 +68,7 @@ function PlannerForm({ trips, setTrips }) {
 
 
         }])
+        toast.success("Trip Successfully Saved!");
 
 
     }

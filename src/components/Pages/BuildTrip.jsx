@@ -3,14 +3,39 @@ import PlannerForm from "../planner/PlannerForm"
 import PackingList from "../planner/PackingList";
 import ReminderList from "../planner/Reminders";
 
-function BuildTrips({trips, setTrips, flightData, setFlightData, connFlightData, setConnFlightData, packingList, setPackingList, packingListData, setPackingListData, reminderList, setReminderList,
-    reminderListData, setReminderListData}) {
+function BuildTrips({ trips, setTrips, flightData, setFlightData, packingList, setPackingList, reminderList, setReminderList }) {
     return (
         <>
-            <PlannerForm trips={trips} setTrips={setTrips}/>
-            <FlightInfo flightData={flightData} setFlightData={setFlightData} connFlightData={connFlightData} setConnFlightData={setConnFlightData}/>
-            <PackingList packingList={packingList} setPackingList={setPackingList} packingListData={packingListData} setPackingListData={setPackingListData}/>
-            <ReminderList reminderList={reminderList} setReminderList={setReminderList} reminderListData={reminderListData} setReminderListData ={setReminderListData} />
+            <div className="outer-wrapper-buildTrips">
+
+                <div className="trip-box-buildTrips">
+                    <div className="saved-trip-data-buildTrips">
+                        <PlannerForm className="planner-form-buildTrip-box" trips={trips} setTrips={setTrips} />
+                    </div>
+                </div>
+
+                <div className="flights-box-buildTrips">
+                    <div className="flights-container-buildTrips">
+                        <FlightInfo className="flight-info-buildTrip-box" flightData={flightData} setFlightData={setFlightData} />
+                    </div>
+                </div>
+
+
+                <div className="packing-reminder-buildTrips">
+                    
+                    <div className="packing-box-buildTrips">
+                        <PackingList className="packing-list-buildTrip-box" packingList={packingList} setPackingList={setPackingList} />
+                    </div>
+
+                    <div className="reminder-box-buildTrips">
+                        <ReminderList className="reminder-list-buildTrip-box" reminderList={reminderList} setReminderList={setReminderList} />
+                    </div>
+                </div>
+
+            </div>
+
+
+
         </>
 
     )

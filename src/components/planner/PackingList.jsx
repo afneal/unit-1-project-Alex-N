@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import List from "../PlannerComponents/List";
 import SubmitButton from "../PlannerComponents/SubmitButton";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function PackingList({ packingList, setPackingList, packingListData, setPackingListData }) {
@@ -9,10 +11,11 @@ function PackingList({ packingList, setPackingList, packingListData, setPackingL
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        setPackingList([...packingList, ...list]);
-        setPackingListData([...packingListData, list])
-        alert("Packing List Successfully Saved!");
+        setPackingList ([...packingList, list]);
+        // setPackingList([...packingList, ...list]);//create new array (setPackingList) and add old packingList with new list items
+        // setPackingListData([...packingListData, list])//
         setList([]);
+        toast.success("Packing List Successfully Saved!");
 
     }
 

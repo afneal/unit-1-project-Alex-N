@@ -1,4 +1,5 @@
 import NavMenu from "./NavMenu";
+import NavIcon from "./NavIcon";
 
 function Header() {
     return (
@@ -7,6 +8,8 @@ function Header() {
                 My Travel Planner
             </div>
             <NavMenu />
+            <NavIcon />
+            
         </header>
     )
 }

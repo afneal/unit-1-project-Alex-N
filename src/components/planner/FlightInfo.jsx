@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import SubmitButton from '../PlannerComponents/SubmitButton';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-function FlightInfo({ flightData, setFlightData, connFlightData, setConnFlightData }) {
+function FlightInfo({ flightData, setFlightData}) {
 
     const [flights, setFlights] = useState([ //array of objects to map through flights
         {
@@ -25,9 +27,8 @@ function FlightInfo({ flightData, setFlightData, connFlightData, setConnFlightDa
         const flightsWithConnections = flights.map(flight => ({
             ...flight, connections: connFlight
         }))
-        alert("Flight Information Saved!");
+       
         setFlightData([...flightData, ...flightsWithConnections]);
-        setConnFlightData([...connFlightData, ...connFlight]);
         setFlights([{
             date: "",
             departureAirportCode: "",
@@ -37,7 +38,7 @@ function FlightInfo({ flightData, setFlightData, connFlightData, setConnFlightDa
             seatNumber: ""
         }])
         setConnFlight([])
-
+        toast.success("Flight Details Successfully Saved!");
     }
 
 
