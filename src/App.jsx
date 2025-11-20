@@ -15,6 +15,7 @@ import ExchangeRates from './components/Pages/Resources';
 // import List from './components/PlannerComponents/List';
 import { ToastContainer } from 'react-toastify';
 
+
 function App() {
 
   const [trips, setTrips] = useState([]);
@@ -31,7 +32,7 @@ function App() {
     <>
         <div className='App'style={{
           backgroundImage: `url(${worldMapImage5})`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: "100vh", 
-          margin: '0', padding: '0', opacity: 0.9, backgroundRepeat: "no-repeat", backgroundAttachment: "fixed" }}>
+          margin: '0', padding: '0', opacity: 0.9, backgroundRepeat: "no-repeat", backgroundAttachment: "fixed", padding: "0 0 20px 0" }}>
 
           < Header />
 

@@ -39,7 +39,7 @@ function ExchangeRates() {
 
             <div className='base-target-currency-container'>
                 <label className='base-currency-box'>
-                   <p> Starting Currency:</p>
+                    <p> Starting Currency:</p>
                     <select value={base} onChange={(event) => setBase(event.target.value)}>
                         {Object.keys(currencies).map((name) => ( //currencies useState is an empty object so use Object.keys to map
                             <option value={name} key={name}>
@@ -50,7 +50,7 @@ function ExchangeRates() {
                 </label>
 
                 <label className='target-currency-box'>
-                   <p> Target Currency:</p>
+                    <p> Target Currency:</p>
                     <select value={target} onChange={(event) => setTarget(event.target.value)}>
                         {Object.keys(currencies).map((name) => ( //map(name) for name of currency acronym
                             <option value={name} key={name}>
