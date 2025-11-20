@@ -15,8 +15,9 @@ function SavedTrips({ trips, flightData, packingList, reminderList }) { //pass p
 
                     <div className="trip-box">
 
-                        <h1>Destination</h1>
+
                         <div id="saved-trip-data">
+                            <h1 className="destination-text">Destination</h1>
 
                             {trips && trips.length > 0 ? (
                                 trips.map((trip, tripIndex) => ( //trips is an array of objects so must use map to display
@@ -28,25 +29,28 @@ function SavedTrips({ trips, flightData, packingList, reminderList }) { //pass p
                                                 <div className="trip-date-box">
                                                     <strong> Date:</strong> {day.date}
                                                 </div>
-                                                <br />
-                                                <strong> City:</strong> {day.city}
-                                                <br />
+
+                                                <p> <strong> City:</strong> {day.city}</p>
+
 
 
 
                                                 <div id="saved-activity-data">
                                                     {day.activities.map((activity, activityIndex) => ( //nested activity map inside day inside trip
                                                         <div key={activityIndex} className="saved-activity">
-                                                            <strong>Activity:</strong> {activity.activity}
-                                                            <br />
-                                                            <strong>Time: </strong>{activity.time}
-                                                            <br />
-                                                            <strong> Notes:</strong> {activity.notes}
+                                                            <p> <strong>Activity:</strong> {activity.activity}</p>
+
+                                                            <p>  <strong>Time: </strong>{activity.time}</p>
+
+                                                            <p>   <strong> Notes:</strong> {activity.notes}</p>
                                                         </div>
                                                     ))}
                                                 </div>
+                                                {trips.length > 1 && (
+                                                    <hr style={{ margin: "20px 0" }} />)}
                                             </div>
                                         ))}
+
                                     </div>
                                 ))
                             ) : (
@@ -60,14 +64,15 @@ function SavedTrips({ trips, flightData, packingList, reminderList }) { //pass p
 
                     <div className="packing-box">
 
-                        <h1>Packing List</h1>
+                        
 
                         <div className="packing-list-container">
+                            <h1 className="packing-list-text">Packing List</h1>
                             {packingList && packingList.length > 0 ? (
                                 packingList.map((list, listIndex) => (
                                     <div key={listIndex} className="saved-packing-list" >
 
-                                        <ul>
+                                        <ul className="saved-packing-list-bullet">
                                             {list.map((item, index) => (
                                                 <li key={index}>{item}</li>
                                             ))}
@@ -84,14 +89,12 @@ function SavedTrips({ trips, flightData, packingList, reminderList }) { //pass p
 
 
 
-
-
-
                 <div className="flights-reminders-container">
 
                     <div className="flights-box">
-                        <h1>Flights</h1>
+                        
                         <div className="flights-container">
+                            <h1 className="flights-text">Flights</h1>
 
                             {flightData && flightData.length > 0 ? (
                                 <div id="saved-flights-data">
@@ -99,28 +102,29 @@ function SavedTrips({ trips, flightData, packingList, reminderList }) { //pass p
                                     {flightData.map((flight, flightIndex) => (
                                         <div key={flightIndex} className="saved-flight" >
                                             <div className="flight-date-box">
-                                                <strong> Date:</strong> {flight.date} <br />
+                                                <strong> Date:</strong> {flight.date}
                                             </div>
-                                            <strong> Departure Airport Code:</strong> {flight.departureAirportCode}<br />
-                                            <strong>Departure Time:</strong>  {flight.departureTime}<br />
+                                            <p>  <strong> Departure Airport Code:</strong> {flight.departureAirportCode}</p>
+                                            <p>  <strong>Departure Time:</strong>  {flight.departureTime}</p>
 
                                             {flight.connections && flight.connections.length > 0 && (
                                                 <div className="saved-connections-data">
 
                                                     {flight.connections.map((connection, connectionIndex) => (
                                                         <div key={connectionIndex} className="saved-connection">
-                                                            <strong> Connecting Airport Code:</strong> {connection.connectingAirportCode}
-                                                            <br />
-                                                            <strong>Connecting Flight Time:</strong>  {connection.connectingFlightTime}
+                                                            <p>   <strong> Connecting Airport Code:</strong> {connection.connectingAirportCode}</p>
+
+                                                            <p>   <strong>Connecting Flight Time:</strong>  {connection.connectingFlightTime}</p>
                                                         </div>
                                                     ))}
 
                                                 </div>
                                             )}
-                                            <strong> Arrival Airport Code:</strong>  {flight.arrivalAirportCode}<br />
-                                            <strong> Arrival Time: </strong> {flight.arrivalTime}<br />
-                                            <strong> Seat Number: </strong> {flight.seatNumber}<br />
-                                            <hr style={{ margin: "20px 0" }} />
+                                            <p> <strong> Arrival Airport Code:</strong>  {flight.arrivalAirportCode}</p>
+                                            <p><strong> Arrival Time: </strong> {flight.arrivalTime}</p>
+                                            <p> <strong> Seat Number: </strong> {flight.seatNumber}</p>
+                                            {flight.connections.length > 1 && (
+                                                <hr style={{ margin: "20px 0" }} />)}
                                         </div>
 
 
@@ -134,14 +138,15 @@ function SavedTrips({ trips, flightData, packingList, reminderList }) { //pass p
                         </div>
                     </div>
                     <div className="reminder-box">
-                        <h1>Reminder List</h1>
+                        
                         <div className="reminder-list-container">
+                            <h1 className="reminder-list-text">Reminder List</h1>
                             {reminderList && reminderList.length > 0 ? (
 
 
                                 reminderList.map((reminderElement, elementIndex) => (
                                     <div key={elementIndex} className="reminder-list">
-                                        <ul>
+                                        <ul className="saved-reminder-list-bullet">
                                             {reminderElement.map((element, reminderIndex) => (
                                                 <li key={reminderIndex}>{element}</li>
                                             ))}
