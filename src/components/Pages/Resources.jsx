@@ -35,43 +35,45 @@ function ExchangeRates() {
 
     return (
         <div className='exchange-rates-box'>
-            <h1>Exchange Rates</h1>
+            <h1 className='exchange-rates-text'>Exchange Rates</h1>
 
-            <label>
-                Starting Currency:
-                <select value={base} onChange={(event) => setBase(event.target.value)}>
-                    {Object.keys(currencies).map((name) => ( //currencies useState is an empty object so use Object.keys to map
-                        <option value={name} key={name}>
-                            {name} - {currencies[name]}
-                        </option>
-                    ))}
-                </select>
-            </label>
-
-            <label>
-                Target Currency:
-                <select value={target} onChange={(event) => setTarget(event.target.value)}>
-                    {Object.keys(currencies).map((name) => ( //map(name) for name of currency acronym
-                        <option value={name} key={name}>
-                            {name} - {currencies[name]}
-                        </option>
-                    ))}
-                </select>
-            </label>
-
-            <div className='exchange-input'>
-                <label>
-                    Amount of ({base.toUpperCase()}):
-                    <input
-                        type="number"
-                        value={amount}
-                        onChange={event => setAmount(Number(event.target.value))} //updates amount state to a number value that is input
-                    />
+            <div className='base-target-currency-container'>
+                <label className='base-currency-box'>
+                   <p> Starting Currency:</p>
+                    <select value={base} onChange={(event) => setBase(event.target.value)}>
+                        {Object.keys(currencies).map((name) => ( //currencies useState is an empty object so use Object.keys to map
+                            <option value={name} key={name}>
+                                {name} - {currencies[name]}
+                            </option>
+                        ))}
+                    </select>
                 </label>
+
+                <label className='target-currency-box'>
+                   <p> Target Currency:</p>
+                    <select value={target} onChange={(event) => setTarget(event.target.value)}>
+                        {Object.keys(currencies).map((name) => ( //map(name) for name of currency acronym
+                            <option value={name} key={name}>
+                                {name} - {currencies[name]}
+                            </option>
+                        ))}
+                    </select>
+                </label>
+
+                <div className='amount-input'>
+                    <label>
+                        <p>Amount of ({base.toUpperCase()}):</p>
+                        <input
+                            type="number"
+                            value={amount}
+                            onChange={event => setAmount(Number(event.target.value))} //updates amount state to a number value that is input
+                        />
+                    </label>
+                </div>
             </div>
 
             <div className='show-exchange'>
-                <h1>
+                <h1 className='show-exchange-text'>
                     {amount} {base.toUpperCase()} = {convertedValue} {target.toUpperCase()}
                 </h1>
             </div>

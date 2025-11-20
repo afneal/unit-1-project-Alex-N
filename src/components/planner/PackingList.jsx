@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
-function PackingList({ packingList, setPackingList, packingListData, setPackingListData }) {
+function PackingList({ packingList, setPackingList }) {
     const [list, setList] = useState([]); //set emtpy array
 
 
@@ -13,7 +13,7 @@ function PackingList({ packingList, setPackingList, packingListData, setPackingL
         event.preventDefault();
         setPackingList ([...packingList, list]);
         // setPackingList([...packingList, ...list]);//create new array (setPackingList) and add old packingList with new list items
-        // setPackingListData([...packingListData, list])//
+        // setPackingListData([...packingListData, list])
         setList([]);
         toast.success("Packing List Successfully Saved!");
 
@@ -25,8 +25,9 @@ function PackingList({ packingList, setPackingList, packingListData, setPackingL
         //pass list and setList states to child
         <>
         
-            <h1 className='packing-list-title'>Packing List</h1>
+            
             <div className='packing-list-input-container'>
+                <h1 className='packing-list-title'>Packing List</h1>
 
                 <form className='packing-list-form' >
                     <List list={list} setList={setList} />

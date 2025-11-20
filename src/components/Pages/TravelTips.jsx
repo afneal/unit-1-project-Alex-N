@@ -4,7 +4,7 @@ function TravelTips() {
     return (
         <main>
             <div className="traveltips">
-                <h1>
+                <h1 className="traveltips-text">
                     Don't Forget these Important Travel Tips!
                 </h1>
                 <p>

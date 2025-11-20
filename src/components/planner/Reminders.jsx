@@ -17,8 +17,9 @@ function ReminderList({ reminderList, setReminderList, reminderListData, setRemi
     }
     return (
         <>
-            <h1 className="reminder-list-title">Important Reminders</h1>
+            
             <div className='reminder-list-input-container'>
+                <h1 className="reminder-list-title">Important Reminders</h1>
 
                 <form className="reminder-list-form">
                     <List list={list} setList={setList} />

@@ -3,7 +3,7 @@ import SubmitButton from '../PlannerComponents/SubmitButton';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-function FlightInfo({ flightData, setFlightData}) {
+function FlightInfo({ flightData, setFlightData }) {
 
     const [flights, setFlights] = useState([ //array of objects to map through flights
         {
@@ -13,31 +13,32 @@ function FlightInfo({ flightData, setFlightData}) {
             arrivalAirportCode: "",
             arrivalTime: "",
             seatNumber: "",
-            connections: []
+            connections: [
+                
+            ]
         }]
     );
 
+   
 
-    const [connFlight, setConnFlight] = useState([]); //initialize to empty array so that length is 0, 
+
+    // const [connFlight, setConnFlight] = useState([]); //initialize to empty array so that length is 0, 
     // must be array in case there are multiple connecting flights and need to map (array of objects)
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(flightData)
-        const flightsWithConnections = flights.map(flight => ({
-            ...flight, connections: connFlight
-        }))
-       
-        setFlightData([...flightData, ...flightsWithConnections]);
+        setFlightData(prev => [...prev, ...flights]);
+
         setFlights([{
             date: "",
             departureAirportCode: "",
             departureTime: "",
             arrivalAirportCode: "",
             arrivalTime: "",
-            seatNumber: ""
+            seatNumber: "",
+            connections: []
         }])
-        setConnFlight([])
+
         toast.success("Flight Details Successfully Saved!");
     }
 
@@ -50,9 +51,13 @@ function FlightInfo({ flightData, setFlightData}) {
             departureTime: "",
             arrivalAirportCode: "",
             arrivalTime: "",
-            seatNumber: ""
+            seatNumber: "",
+            connections: []
         }])
+
     }
+
+    
 
     const handleFlightDelete = (flightIndex) => { //at specific index parameter, copy array, then splice out that index value. Set state to new array
         const delFlight = [...flights];
@@ -60,24 +65,32 @@ function FlightInfo({ flightData, setFlightData}) {
         setFlights(delFlight);
     }
 
-    const handleAddConnection = () => { //adds empty elements to array so length > 0
-        setConnFlight([...connFlight, { connectingAirportCode: "", connectingFlightTime: "" }]);
+    
+
+    const handleAddConnection = (flightIndex) => {
+        const newConn = [...flights];
+        newConn[flightIndex].connections.push({
+            connectingAirportCode: "",
+            connectingFlightTime: ""
+        })
+        setFlights(newConn);
     }
 
 
-    const handleConnectionDelete = (connectionIndex) => { //at specific index parameter, copy array, then splice out that index value. Set state to new array
-        const delConnection = [...connFlight];
-        delConnection.splice(connectionIndex, 1);
-        setConnFlight(delConnection);
+    const handleConnectionDelete = (flightIndex, connectionIndex) => { //at specific index parameter, copy array, then splice out that index value. Set state to new array
+        const delConnection = [...flights];
+        delConnection[flightIndex].connections.splice(connectionIndex, 1);
+        setFlights(delConnection);
     }
 
 
 
     return (
         <>
-            <div>
-                <h1 className='flight-details'>Flight Details</h1>
+            <div className='outer-flight-wrapper'>
+                
                 <form className='flight-form' onSubmit={handleSubmit}>
+                    <h1 className='flight-details'>Flight Details</h1>
                     {flights.map((flightElement, flightIndex) => (
 
                         <fieldset key={flightIndex}>
@@ -120,10 +133,14 @@ function FlightInfo({ flightData, setFlightData}) {
                                     setFlights(newFlight);
                                 }}
                             />
+                            {flightElement.connections.length > 0 ? <legend>Connecting Flights</legend> : ""}
 
-                            {connFlight.length > 0 && ( //if connecting flights button adds empty element, then run this code
-                                <div>
-                                    {connFlight.map((connection, connectionIndex) => ( //maps through connecting flight inputs and updates text on change
+
+
+
+                            {flightElement.connections.length > 0 && ( //if connecting flights button adds empty element, then run this code
+                                <div className='flight-connections-box'>
+                                    {flightElement.connections.map((connection, connectionIndex) => ( //maps through connecting flight inputs and updates text on change
                                         <div key={connectionIndex}>
                                             <label>Connecting Airport Code:</label>
                                             <input
@@ -132,10 +149,11 @@ function FlightInfo({ flightData, setFlightData}) {
                                                 placeholder='Connecting Airport Code'
                                                 value={connection.connectingAirportCode} //accessing airportcode element at each connection object in array
                                                 onChange={e => {
-                                                    const newConnection = [...connFlight]; //store copy of connection array in variable
-                                                    newConnection[connectionIndex] = { ...newConnection[connectionIndex], connectingAirportCode: e.target.value }
+                                                    const newConnection = [...flights]; //store copy of connection array in variable
+                                                    newConnection[flightIndex].connections[connectionIndex].connectingAirportCode = e.target.value;
                                                     //...newConnection[index] to copy OBJECT in array and update airportCode to target value, then set that value in the old empty array
-                                                    setConnFlight(newConnection);
+                                                    setFlights(newConnection);
+
                                                 }}
                                             />
 
@@ -146,21 +164,23 @@ function FlightInfo({ flightData, setFlightData}) {
                                                 placeholder='Connecting Flight Departure Time'
                                                 value={connection.connectingFlightTime}
                                                 onChange={e => {
-                                                    const newConnection = [...connFlight];
-                                                    newConnection[connectionIndex] = { ...newConnection[connectionIndex], connectingFlightTime: e.target.value }
-                                                    setConnFlight(newConnection);
+                                                    const newConnection = [...flights];
+                                                    newConnection[flightIndex].connections[connectionIndex].connectingFlightTime = e.target.value
+                                                    setFlights(newConnection);
+
                                                 }}
                                             />
                                             <button
                                                 className='delete-connection-button'
                                                 type="button" //Arguements: Delete the specific connection at the specific index
-                                                onClick={() => handleConnectionDelete(connection, connectionIndex)}>Delete Connection</button>
+                                                onClick={() => handleConnectionDelete(flightIndex, connectionIndex)}>Delete Connection</button>
                                         </div>
 
                                     ))}
 
 
                                 </div>
+
                             )}
 
 
@@ -190,8 +210,21 @@ function FlightInfo({ flightData, setFlightData}) {
                                 }}
                             />
 
+                            <label>Seat Number:</label>
+                            <input
+                                id="seatNumber"
+                                name="seatNumber"
+                                placeholder='Seat Number'
+                                value={flightElement.seatNumber}
+                                onChange={e => {
+                                    const newFlight = [...flights];
+                                    newFlight[flightIndex] = { ...newFlight[flightIndex], seatNumber: e.target.value }
+                                    setFlights(newFlight);
+                                }}
+                            />
 
-                            <button type="button" onClick={handleAddConnection} className='add-connecting-button'>Add Connecting Flight</button>
+
+                            <button type="button" onClick={() => handleAddConnection(flightIndex)} className='add-connecting-button'>Add Connecting Flight</button>
 
                             <button
                                 className='delete-flight-button'
@@ -199,9 +232,9 @@ function FlightInfo({ flightData, setFlightData}) {
                                 onClick={() => handleFlightDelete(flightElement, flightIndex)}>Delete Flight</button>
                         </fieldset>
                     ))}
-                    <SubmitButton onClick={handleSubmit} label="Save Flight Details" className='flight-submit-button' />
-
                     <button type="button" onClick={handleAddFlight} className='add-flight-button'>Add New Flight</button>
+
+                    <SubmitButton onClick={handleSubmit} label="Save Flight Details" className='flight-submit-button' />
                 </form>
 
             </div>

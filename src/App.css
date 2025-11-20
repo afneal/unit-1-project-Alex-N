@@ -1,20 +1,25 @@
 header {
-    background-color: rgb(207, 141, 48);
+    background-color: rgba(211, 211, 211, 0.9);
     color: black;
+
     font-size: 2em;
-    padding: 20px;
+    padding: 0 20px;
     margin: 0;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between;/*logo left, nav right*/
     align-items: center;
+    font-family: "winky sans", sans-serif;
 }
 
 footer {
-    background-color: lightslategray;
+
     position: fixed;
     bottom: 0px;
+    padding: 10px;
     width: 100%;
     height: 60px;
+    background-color: rgba(211, 211, 211, 0.9);
+
 
 }
 
@@ -25,12 +30,22 @@ footer {
     list-style-type: none;
     display: flex;
     gap: 20px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.nav-menu ul {
+    display: flex;
+    align-items: flex-end;
+
 }
 
 
 
 .nav-menu li {
     padding: 5px 10px;
+    /* display: block; */
+    align-items: flex-end;
 
 }
 
@@ -38,6 +53,8 @@ footer {
     padding: 14px 16px;
     text-decoration: none;
     color: black;
+    display: flex;
+
 }
 
 
@@ -49,24 +66,43 @@ footer {
 
 .homepage {
     text-align: center;
-    background-color: rgba(0, 0, 0, 0.7);
-    color: rgb(207, 141, 48);
+    background-color: rgba(211, 211, 211, 0.9);
+    color: black;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
     padding: 10px;
-    border: 2px solid rgb(207, 141, 48);
+
     max-width: 80%;
     margin: auto;
     margin-top: 20px;
     border-radius: 10px;
+
+}
+
+.homepage-text {
+    text-align: center;
+    background-color: dimgray;
+    border-radius: 10px;
+    padding: 16px 20px;
+    box-shadow: 0 2px 8px black;
+    color: white;
+    width: 80%;
+    margin: 20px auto;
 }
 
 .homepage-main {
-    color: rgb(207, 141, 48);
+    color: black;
     text-decoration: none;
+    border: 2px solid deepskyblue;
+    border-radius: 8px;
+    background-color: deepskyblue;
+    padding: 10px;
+    display: inline-block;
+    font-family: "winky sans", sans-serif;
 }
 
 .homepage a:hover {
-    text-decoration: underline;
-    color: rgb(180, 63, 63);
+    display: inline-block;
+    transform: scale(1.1);
 }
 
 body {
@@ -78,15 +114,26 @@ body {
 
 .traveltips {
     text-align: center;
-    background-color: rgba(0, 0, 0, 0.7);
-    color: rgb(207, 141, 48);
+    background-color: rgba(211, 211, 211, 0.9);
+    color: black;
+    /* text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); */
     padding: 10px;
-    border: 2px solid rgb(207, 141, 48);
+    /* border: 2px solid rgb(207, 141, 48); */
     max-width: 80%;
     margin: auto;
     margin-top: 20px;
     border-radius: 10px;
+}
 
+.traveltips-text {
+    text-align: center;
+    background-color: dimgray;
+    border-radius: 10px;
+    padding: 16px 20px;
+    box-shadow: 0 2px 8px black;
+    color: white;
+    width: 80%;
+    margin: 20px auto;
 }
 
 /* ul {
@@ -107,9 +154,22 @@ p {
 
 h1 {
     font-size: 40px;
+    font-family: "winky sans", sans-serif;
+
+
 }
 
-.destination-div {
+/* 
+    border-radius: 10px;
+    background-color: rgba(211, 211, 211, 0.9);
+    padding: 16px 20px;
+    box-shadow: 0 2px 8px black;
+    width: 100%;
+    margin-left: 20px auto;
+    box-sizing: border-box;
+    align-items: center; */
+
+/* .destination-div {
     text-align: center;
     background-color: rgba(0, 0, 0, 0.7);
     color: rgb(207, 141, 48);
@@ -148,8 +208,93 @@ h1 {
     align-items: center;
     width: fit-content;
     color: rgb(207, 141, 48);
+} */
+
+
+/*Exchange Rates */
+
+.exchange-rates-box {
+    text-align: center;
+    background-color: rgba(211, 211, 211, 0.9);
+    color: black;
+    padding: 20px;
+    max-width: 80%;
+    margin: auto;
+    margin-top: 20px;
+    border-radius: 10px;
+
 }
 
+.exchange-rates-text {
+    text-align: center;
+    background-color: dimgray;
+    border-radius: 10px;
+    padding: 16px 20px;
+    box-shadow: 0 2px 8px black;
+    color: white;
+    width: 90%;
+    margin: 20px auto;
+}
+
+.base-currency-box,
+.target-currency-box {
+    background-color: rgba(252, 250, 250, 0.7);
+    margin: 0px;
+    padding-left: 10px;
+    border-radius: 12px;
+    box-shadow: 0 0 5px;
+    font-size: 1em;
+    padding: 10px;
+    width: 80%;
+    margin: 20px auto;
+}
+
+.show-exchange-text {
+    background-color: deepskyblue;
+    margin: 0px;
+    padding-left: 10px;
+    border-radius: 12px;
+    box-shadow: 0 0 5px;
+    padding: 10px;
+    width: 80%;
+    margin: 20px auto;
+}
+
+.amount-input input {
+    border-radius: 8px;
+    font-size: 1em;
+    padding: 10px;
+    outline: none;
+    box-shadow: 0 0 4px;
+    border: 1px solid black;
+    background-color: rgba(252, 250, 250, 0.7);
+}
+
+/* border: 2px solid black */
+/* box-shadow: 0 0 5px; */
+
+.base-target-currency-container {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    width: 100%;
+
+    box-sizing: border-box;
+    align-items: stretch;
+}
+
+.base-currency-box select,
+.target-currency-box select {
+    padding: 10px 10px;
+    /* border-radius: 8px;
+    border: 1px solid black; */
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: rgba(211, 211, 211, 0.9);
+
+}
 
 /* savedtrips */
 .main-trip-container,
@@ -159,10 +304,19 @@ h1 {
     gap: 10px;
     flex-direction: row;
     width: 100%;
-
+    padding: 20px;
     box-sizing: border-box;
     align-items: stretch;
 
+}
+
+.destination-text, .packing-list-text, .flights-text, .reminder-list-text {
+    text-align: center;
+    background-color: dimgray;
+    border-radius: 10px;
+    padding: 16px 20px;
+    box-shadow: 0 2px 8px black;
+    color: white;
 }
 
 
@@ -170,6 +324,7 @@ h1 {
 .outer-wrapper-trips {
     padding: 20px;
     box-sizing: border-box;
+
 }
 
 
@@ -179,11 +334,13 @@ h1 {
     flex: 7;
     display: flex;
     flex-direction: column;
+
 }
 
 .reminder-box,
 .packing-box {
     flex: 3;
+
 
 }
 
@@ -191,7 +348,7 @@ h1 {
 .packing-list-container,
 .reminder-list-container,
 .flights-container {
-    background: lightblue;
+    background-color: rgba(211, 211, 211, 0.9);
     border-radius: 10px;
     padding: 16px 20px;
     box-shadow: 0 2px 8px black;
@@ -200,12 +357,14 @@ h1 {
     overflow-y: auto;
     min-height: 0;
     font-size: 1rem;
+
+
 }
 
 
 #saved-activity-data,
 .saved-connections-data {
-    background: white;
+    background-color: rgba(252, 250, 250, 0.7);
     margin: 10px;
     padding-left: 10px;
     border-radius: 12px;
@@ -218,17 +377,26 @@ h1 {
     padding: 10px 12px;
     margin-bottom: 10px;
     border-bottom: 1px dashed black;
+    background-color: rgba(248, 247, 247, 0.8);
+    border-radius: 8px;
+}
 
+.saved-activity p {
+    line-height: 0.7;
+}
+
+.saved-flight p {
+    line-height: 0.7;
 }
 
 
 
 .saved-connection {
     padding: 10px;
-
     border-radius: 8px;
     background: white;
     font-size: 0.95rem;
+
 }
 
 .saved-activity:last-child,
@@ -236,10 +404,34 @@ h1 {
     border-bottom: none;
 }
 
-#saved-trip-data, .saved-connection, #saved-activity-data, #saved-flights-data,
-.reminder-list, .saved-packing-list {
+#saved-trip-data,
+.saved-connection,
+#saved-activity-data,
+#saved-flights-data,
+.reminder-list,
+.saved-packing-list {
     font-size: 18px;
+
 }
+
+.saved-packing-list-bullet,
+.saved-reminder-list-bullet,
+.traveltips li {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    padding-left: 30px;
+    font-family: "winky sans", sans-serif;
+}
+
+.saved-packing-list li::before,
+.saved-reminder-list-bullet li::before,
+.traveltips li::before {
+    content: "\2713";
+
+}
+
+
 
 
 .flight-date-box {
@@ -261,6 +453,7 @@ h1 {
     padding: 20px;
     box-sizing: border-box;
 
+
 }
 
 
@@ -271,6 +464,9 @@ h1 {
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
+    gap: 20px;
+    padding: 0 40px;
+    
 
 }
 
@@ -280,20 +476,37 @@ h1 {
     display: flex;
     flex-direction: column;
     flex: 1;
+    
 
 }
+
+/* .packing-box-buildTrips {
+    margin-right: 20px;
+} */
+
+
 
 
 
 
 /* Planner Form */
 
+.outer-wrapper-planner {
+    padding: 0 40px;
+    box-sizing: border-box;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
 .planner-form {
-    max-width: 800px;
+    max-width: 100%;
+    width: 100%;
     margin: 20px auto;
-    padding: 20px;
+    padding: 20px 40px;
     border-radius: 10px;
     box-shadow: 0 0 10px black;
+    background-color: rgba(211, 211, 211, 0.9);
+    box-sizing: border-box;
 }
 
 .planner-form fieldset {
@@ -314,6 +527,12 @@ h1 {
     margin-bottom: 5px;
     font-weight: 300;
 
+}
+
+.activity-component {
+    margin-left: 20px;
+    padding: 10px;
+    margin-bottom: 15px;
 }
 
 #city,
@@ -343,18 +562,18 @@ h1 {
 
 .delete-activity-button,
 .delete-day-button {
-    background-color: red;
+    background-color: dimgray;
     color: black;
 }
 
 .activity-button,
 .add-day-button {
-    background-color: lightblue;
+    background-color: deepskyblue;
 }
 
 
 .trip-submit-button {
-    background-color: green;
+    background-color: dodgerblue;
 }
 
 .form-button-group {
@@ -363,12 +582,24 @@ h1 {
     justify-content: flex-start;
 }
 
+/*flight form*/
+
+.outer-flight-wrapper {
+padding: 40px 40px;
+    box-sizing: border-box;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+
 .flight-form {
-    max-width: 800px;
+    max-width: 100%;
     margin: 20px auto;
-    padding: 20px;
+    padding: 20px 40px;
     border-radius: 10px;
     box-shadow: 0 0 10px black;
+    background-color: rgba(211, 211, 211, 0.9);
+    box-sizing: border-box;
 }
 
 .flight-form fieldset {
@@ -389,13 +620,19 @@ h1 {
     font-weight: 300;
 }
 
+.flight-connections-box {
+    margin-left: 20px;
+    padding: 15px;
+}
+
 #date,
 #deptCode,
 #deptTime,
 #connCode,
 #connTime,
 #arrCode,
-#arrTime {
+#arrTime,
+#seatNumber {
     width: 90%;
     padding: 8px;
     margin-bottom: 15px;
@@ -418,26 +655,37 @@ h1 {
 
 .delete-connection-button,
 .delete-flight-button {
-    background-color: red;
+    background-color: dimgray;
     color: black;
     margin: 10px;
 }
 
 .add-connecting-button,
 .add-flight-button {
-    background-color: lightblue;
+    background-color: deepskyblue;
 }
 
 .flight-submit-button {
-    background-color: green;
+    background-color: dodgerblue;
 }
 
 .flight-details {
     text-align: center;
+    background-color: dimgray;
+    border-radius: 10px;
+    padding: 16px 20px;
+    box-shadow: 0 2px 8px black;
+    color: white;
+
 }
 
 .trip-details {
     text-align: center;
+    background-color: dimgray;
+    border-radius: 10px;
+    padding: 16px 20px;
+    box-shadow: 0 2px 8px black;
+    color: white;
 }
 
 .packing-list-input-container,
@@ -447,15 +695,79 @@ h1 {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px black;
+    background-color: rgba(211, 211, 211, 0.9);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    box-sizing: border-box;
+    width: 100%;
+    
 }
+
+#list {
+    width: 100%;
+}
+
+#list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#list input#list-item {
+    flex:1;
+    padding: 10px 12px;
+    margin: 10px;
+    font-size: 15px;
+    border-radius: 8px;
+    border: 1px solid black;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+    outline: none;
+}
+
+
+/* .amount-input input {
+    border-radius: 8px;
+    font-size: 1em;
+    padding: 10px;
+    outline: none;
+    box-shadow: 0 0 4px;
+    border: 1px solid black;
+    background-color: rgba(252, 250, 250, 0.7);
+} */
 
 .packing-list-title,
 .reminder-list-title {
     text-align: center;
+    margin: 0;
+    padding: 16px 20px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: dimgray;
+    border-radius: 10px;
+    padding: 16px 20px;
+    box-shadow: 0 2px 8px black;
+    color: white;
+}
+
+.list-item {
+     width: 90%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.packing-list-form, .reminder-list-form {
+    
+    /* padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; */
 }
 
 #add-item-button {
-    background-color: lightblue;
+    background-color: deepskyblue;
     padding: 8px 15px;
     margin: 5px 5px 0 0;
     border: none;
@@ -471,17 +783,15 @@ h1 {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    background-color: green;
+    background-color: dodgerblue;
 }
 
 .delete-item-button {
     padding: 8px 15px;
-    /* margin: 5px 5px 0 0; */
-    /* margin-left: 10px; */
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    background-color: red;
+    background-color: dimgray;
     color: black;
     vertical-align: middle;
     line-height: 24px;
@@ -499,10 +809,12 @@ h1 {
 }
 
 .reminder-list-form li::before {
-    content: "\2705";
-    color: green;
-    font-size: 1rem;
+    content: "\2713";
+    color: black;
+    font-size: 25px;
+    margin-right: 20px;
 }
+
 
 .packing-list-form li {
     display: flex;
@@ -513,9 +825,11 @@ h1 {
 }
 
 .packing-list-form li::before {
-    content: "\2705";
-    color: green;
-    font-size: 1rem;
+
+    content: "\2713";
+    color: black;
+    margin-right: 20px;
+    font-size: 25px;
 }
 
 @media (min-width: 480px) {
@@ -537,7 +851,7 @@ h1 {
 
     .main-trip-container,
     .flights-reminders-container,
-    .trip-packing-container, 
+    .trip-packing-container,
     .packing-reminder-buildTrips {
         flex-direction: row;
         font-size: 20px;
@@ -558,56 +872,19 @@ header .nav-menu ul {
     display: block;
 }
 
-/* nav {
-    background-color: #333;
-    overflow: hidden;
-} */
 
-/* nav ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-} */
-
-/* nav ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-} */
 
 nav ul li {
     list-style: none;
 }
 
-/* nav a {
-    display: none;
-    color: white;
-    padding: 14px 20px;
-    text-decoration: none;
-} */
 
-/* .nav-icon-button {
-    display: block;
-    background: none;
-    border: none;
-    font-size: 2rem;
-    color: white;
-    cursor: pointer;
-    padding: 14px 20px;
-} */
-
-
-
-/* .isExpanded a {
-    display: block;
-    background-color: #444;
-} */
 
 @media (min-width: 768px) {
 
     .main-trip-container,
     .flights-reminders-container,
-    .trip-packing-container, 
+    .trip-packing-container,
     .packing-reminder-buildTrips {
         flex-direction: row;
         gap: 10px;
