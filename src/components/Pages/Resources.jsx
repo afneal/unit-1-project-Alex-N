@@ -12,7 +12,7 @@ function ExchangeRates() {
     useEffect(() => {//useEffect to run the code after component renders to avoid infinite useState loop
         fetch("https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies.json") //currencies.json to pull currency names
             .then((response) => response.json())
-            .then((data) => setCurrencies(data))
+            .then((data) => setCurrencies(data)) //update useState with data
             .catch((error) => { error.message })
     }, []);//[] to run only once
 

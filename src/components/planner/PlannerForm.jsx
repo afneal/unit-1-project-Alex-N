@@ -57,9 +57,9 @@ function PlannerForm({ trips, setTrips }) {
         event.preventDefault();
 
         setTrips([...trips, days]) //make copy of empty trips array, add days to the copy
-
-
-        setDays([{
+        
+        
+        setDays([{ //resets days to blank template form
             city: "",
             date: "",
             activities: [
@@ -170,7 +170,7 @@ function PlannerForm({ trips, setTrips }) {
 
                                         <button
                                             className='delete-activity-button'
-                                            type="button" //Arguements: Delete the specific activity index at the specific day index
+                                            type="button" //Arguments: Delete the specific activity index at the specific day index
                                             onClick={() => handleActivityDelete(dayIndex, activityIndex)}>Delete Activity</button>
 
 

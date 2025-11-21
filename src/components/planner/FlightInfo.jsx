@@ -22,14 +22,10 @@ function FlightInfo({ flightData, setFlightData }) {
    
 
 
-    // const [connFlight, setConnFlight] = useState([]); //initialize to empty array so that length is 0, 
-    // must be array in case there are multiple connecting flights and need to map (array of objects)
-
     const handleSubmit = (event) => {
         event.preventDefault();
-        setFlightData(prev => [...prev, ...flights]);
-
-        setFlights([{
+        setFlightData([...flightData, ...flights]); //make copy of empty flightData array and add flights to it, updates the parent state (setFlightData)
+        setFlights([{ //resets flights form
             date: "",
             departureAirportCode: "",
             departureTime: "",
@@ -45,7 +41,7 @@ function FlightInfo({ flightData, setFlightData }) {
 
 
     const handleAddFlight = () => {
-        setFlights([...flights, {
+        setFlights([...flights, { //makes copy of flights array, add empty object 
             date: "",
             departureAirportCode: "",
             departureTime: "",
@@ -67,7 +63,7 @@ function FlightInfo({ flightData, setFlightData }) {
 
     
 
-    const handleAddConnection = (flightIndex) => {
+    const handleAddConnection = (flightIndex) => { //adds empty connections object to connections array in flights array
         const newConn = [...flights];
         newConn[flightIndex].connections.push({
             connectingAirportCode: "",
@@ -100,10 +96,10 @@ function FlightInfo({ flightData, setFlightData }) {
                                 id="date"
                                 name="date"
                                 placeholder="Date of Flight"
-                                value={flightElement.date} //access date from flight object
+                                value={flightElement.date} //access date from flight object, value tells what user text to display in input field
                                 onChange={e => {
-                                    const newFlight = [...flights];
-                                    newFlight[flightIndex] = { ...newFlight[flightIndex], date: e.target.value }
+                                    const newFlight = [...flights]; //shallow copy of whole flights array
+                                    newFlight[flightIndex] = { ...newFlight[flightIndex], date: e.target.value } //shallow copy of the specific flight object in array, set date to user input
                                     setFlights(newFlight);
                                 }}
                             />
@@ -147,7 +143,7 @@ function FlightInfo({ flightData, setFlightData }) {
                                                 id="connCode"
                                                 name="connCode"
                                                 placeholder='Connecting Airport Code'
-                                                value={connection.connectingAirportCode} //accessing airportcode element at each connection object in array
+                                                value={connection.connectingAirportCode} //accessing airportcode element at each connection object in connection array
                                                 onChange={e => {
                                                     const newConnection = [...flights]; //store copy of connection array in variable
                                                     newConnection[flightIndex].connections[connectionIndex].connectingAirportCode = e.target.value;
@@ -155,6 +151,8 @@ function FlightInfo({ flightData, setFlightData }) {
                                                     setFlights(newConnection);
 
                                                 }}
+
+                                                
                                             />
 
                                             <label>Connecting Flight Departure Time:</label>

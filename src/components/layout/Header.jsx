@@ -8,7 +8,7 @@ function Header() {
 
         <header>
             <img src={travelMateLogo} className="header-logo" alt="Travel Mate Logo" />
-            
+
             <NavMenu />
             <NavIcon />
 
