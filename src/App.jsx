@@ -1,6 +1,6 @@
 
 import { Routes, Route } from 'react-router'
-import Homepage from './components/pages/Homepage'
+import Homepage from './components/Pages/Homepage'
 import Header from './components/layout/Header'
 import worldMapImage5 from './assets/worldMapImage5.jpg';
 import Footer from './components/layout/Footer'
