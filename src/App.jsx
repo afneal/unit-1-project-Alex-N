@@ -4,7 +4,6 @@ import Homepage from './components/pages/Homepage'
 import Header from './components/layout/Header'
 import worldMapImage5 from './assets/worldMapImage5.jpg';
 import Footer from './components/layout/Footer'
-// import Planner from './components/Pages/Planner'
 import SavedTrips from './components/Pages/SavedTrips'
 import { useState } from 'react'
 import './App.css'
