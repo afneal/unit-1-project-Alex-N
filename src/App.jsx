@@ -4,18 +4,17 @@ import Homepage from './components/pages/Homepage'
 import Header from './components/layout/Header'
 import worldMapImage5 from './assets/worldMapImage5.jpg';
 import Footer from './components/layout/Footer'
-import Planner from './components/Pages/Planner'
+// import Planner from './components/Pages/Planner'
 import SavedTrips from './components/Pages/SavedTrips'
 import { useState } from 'react'
 import './App.css'
 import TravelTips from './components/Pages/TravelTips'
 import BuildTrips from './components/Pages/BuildTrip';
 import ExchangeRates from './components/Pages/Resources';
-// import FlightInfo from './components/planner/FlightInfo';
-// import List from './components/PlannerComponents/List';
 import { ToastContainer } from 'react-toastify';
 
-function App() {
+
+function App() { //App owns the states so is the parent
 
   const [trips, setTrips] = useState([]);
   const [packingList, setPackingList] = useState([])
@@ -23,7 +22,7 @@ function App() {
   const [flightData, setFlightData] = useState([]);
   const [reminderList, setReminderList] = useState([])
 
-// position: "absolute", zIndex: 0
+
        
 
 
@@ -31,7 +30,7 @@ function App() {
     <>
         <div className='App'style={{
           backgroundImage: `url(${worldMapImage5})`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: "100vh", 
-          margin: '0', padding: '0', opacity: 0.9, backgroundRepeat: "no-repeat", backgroundAttachment: "fixed" }}>
+          margin: '0', padding: '0', opacity: 0.9, backgroundRepeat: "no-repeat", backgroundAttachment: "fixed", padding: "0 0 20px 0" }}>
 
           < Header />
 
@@ -40,7 +39,6 @@ function App() {
           <Routes>
             <Route path="/" element={<Homepage />} />
             <Route path="/traveltips" element={<TravelTips />} />
-            <Route path="/planner" element={<Planner />} />
             <Route path="/buildtrips" element={<BuildTrips trips={trips} setTrips={setTrips} flightData={flightData} setFlightData={setFlightData}
               packingList={packingList} setPackingList={setPackingList} list={list} setList={setList} reminderList={reminderList} setReminderList={setReminderList}
             />} />

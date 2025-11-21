@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { FaBars } from 'react-icons/fa';
 
 function NavIcon() {
-    const [isExpanded, setIsExpanded] = useState(false);
+    const [isExpanded, setIsExpanded] = useState(false); //set initial state to closed navIcon window
     
 
 
@@ -22,7 +22,7 @@ function NavIcon() {
         <nav className={isExpanded ? 'isExpanded' : ''}>
             <button className='nav-icon-button' onClick={() => setIsExpanded(!isExpanded)}><FaBars /></button>
 
-            {isExpanded && ( //onClick sets isExpanded to opposite of its current value, toggles the menu open and closed
+            {isExpanded && ( //onClick sets isExpanded to opposite of its current value, toggles the menu open and closed, ifExpanded then shows navMenu links
                 <>
                     <ul>
                         <li><Link to="/">Home</Link></li>

@@ -5,15 +5,13 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
-function PackingList({ packingList, setPackingList }) {
+function PackingList({ packingList, setPackingList }) { //PackingList function is child of parent App.jsx, props coming from App into PackingList
     const [list, setList] = useState([]); //set emtpy array
 
 
     const handleSubmit = (event) => {
         event.preventDefault();
         setPackingList ([...packingList, list]);
-        // setPackingList([...packingList, ...list]);//create new array (setPackingList) and add old packingList with new list items
-        // setPackingListData([...packingListData, list])
         setList([]);
         toast.success("Packing List Successfully Saved!");
 
@@ -22,7 +20,8 @@ function PackingList({ packingList, setPackingList }) {
 
 
     return (
-        //pass list and setList states to child
+        
+        //pass in List and SubmitButton child components, passing {list} and {setList} props data to child <List> component
         <>
         
             
@@ -35,7 +34,7 @@ function PackingList({ packingList, setPackingList }) {
                     <SubmitButton onClick={handleSubmit} label="Save Packing List" className='packing-list-submit-button' />
                 </form>
             </div >
-        </>
+        </>//SubmitButton child component is receiving 3 props (onClick, label, className) from parent ReminderList
     )
 }
 

@@ -1,7 +1,4 @@
-import FlightInfo from "../planner/FlightInfo";
-import MockData from "../planner/MockData";
-import List from "../PlannerComponents/List";
-import { useState } from 'react';
+
 
 
 
@@ -46,7 +43,7 @@ function SavedTrips({ trips, flightData, packingList, reminderList }) { //pass p
                                                         </div>
                                                     ))}
                                                 </div>
-                                                {trips.length > 1 && (
+                                                {trip.length > 1 && ( //add divider between multiple trips
                                                     <hr style={{ margin: "20px 0" }} />)}
                                             </div>
                                         ))}
@@ -68,7 +65,7 @@ function SavedTrips({ trips, flightData, packingList, reminderList }) { //pass p
 
                         <div className="packing-list-container">
                             <h1 className="packing-list-text">Packing List</h1>
-                            {packingList && packingList.length > 0 ? (
+                            {packingList && packingList.length > 0 ? ( //run code if item is added to packingList
                                 packingList.map((list, listIndex) => (
                                     <div key={listIndex} className="saved-packing-list" >
 
@@ -107,7 +104,7 @@ function SavedTrips({ trips, flightData, packingList, reminderList }) { //pass p
                                             <p>  <strong> Departure Airport Code:</strong> {flight.departureAirportCode}</p>
                                             <p>  <strong>Departure Time:</strong>  {flight.departureTime}</p>
 
-                                            {flight.connections && flight.connections.length > 0 && (
+                                            {flight.connections && flight.connections.length > 0 && ( //run code and display only if there are connections added
                                                 <div className="saved-connections-data">
 
                                                     {flight.connections.map((connection, connectionIndex) => (
@@ -123,7 +120,7 @@ function SavedTrips({ trips, flightData, packingList, reminderList }) { //pass p
                                             <p> <strong> Arrival Airport Code:</strong>  {flight.arrivalAirportCode}</p>
                                             <p><strong> Arrival Time: </strong> {flight.arrivalTime}</p>
                                             <p> <strong> Seat Number: </strong> {flight.seatNumber}</p>
-                                            {flight.connections.length > 1 && (
+                                            {flightData.length > 1 && ( //add divider between flights
                                                 <hr style={{ margin: "20px 0" }} />)}
                                         </div>
 
@@ -167,54 +164,3 @@ function SavedTrips({ trips, flightData, packingList, reminderList }) { //pass p
 }
 
 export default SavedTrips;
-
-
-
-
-
-
-
-
-{/* <div className="reminder-box">
-                        <h1>Reminder List</h1>
-                        <div className="reminder-list-container">
-                            {reminderListData && reminderListData.length > 0 ? (
-
-
-                                reminderListData.map((reminderElement, elementIndex) => (
-                                    <div key={elementIndex} className="reminder-list">
-                                        <ul>
-                                            {reminderElement.map((element, reminderIndex) => (
-                                                <li key={reminderIndex}>{element}</li>
-                                            ))}
-                                        </ul>
-                                    </div>
-                                ))
-
-                            ) : (
-                                <p>No reminders added yet.</p>
-                            )}
-                        </div>
-                    </div> */}
-
-{/* <div className="reminder-box">
-                        <h1>Reminder List</h1>
-                        <div className="reminder-list-container">
-                            {reminderListData && reminderListData.length > 0 ? (
-
-
-                                reminderListData.map((reminderElement, elementIndex) => (
-                                    <div key={elementIndex} className="reminder-list">
-                                        <ul>
-                                            {reminderElement.map((element, reminderIndex) => (
-                                                <li key={reminderIndex}>{element}</li>
-                                            ))}
-                                        </ul>
-                                    </div>
-                                ))
-
-                            ) : (
-                                <p>No reminders added yet.</p>
-                            )}
-                        </div>
-                    </div> */}
